@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable = no">
+    <link rel="stylesheet" type="text/css" href="shidel/shidel.css">
+
+    <title>Andrew and Joeseph Shidel's Developmet Showcase</title>
+
+    <meta name="keywords" content="Andrew, Joe, Joeseph, Shidel, Development, Dev">
+    <meta name="description" content="Pittsburgh web developers Andrew Shidel and Joe Shidel's development showcase portfolio. We use HMTL5, PHP, Javascript, JQuery, Python, Ruby on Rails, CSS3, and MYSQL. ">
+
+
+
+
+</head>
+
+
+
+<body>
+    <script src='shidel/viewFrames.js'></script>
+    <script>
+    view.create({
+        "view": "data",
+        "index": {
+            "name": "welcome",
+            "location": "shidel/welcome.html"
+        },
+        "path": "shidel",
+        "exceptions": {
+            "welcome":"shidel/welcome.html"
+        },
+        "autoSize": true
+    })
+    </script>
+    <div class='header' id='header'>
+        <a id='banner' class='handle' data-link='welcome'>
+            SHIDEL.dev
+        </a>
+        <a id="about" class='handle' data-link='about'>
+           About Us
+        </a>
+        <a id="projects" class='handle' data-link='projects'>
+            Projects
+        </a>
+        <a id="articles" class='handle' data-link='articles'>
+            Articles
+        </a>
+        <img id="nav" src="shidel/threelines.png" />
+
+    </div>
+
+    <div id='container'>
+
+
+
+        <div class='column'>
+            <iframe src="shidel/desktop.html" id='data' class='data' scrolling="yes" frameborder="0"></iframe>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+
+
+
+</html>

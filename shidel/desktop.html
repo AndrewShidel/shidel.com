@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Andrew and Joe Shidel's Development Portolio.</title>
+
+    <meta name="description" content="Shidel.dev is a pittsburgh based software development team lead by Andrew and Joe Shidel specializing in web and mobile app development.">
+
+    <style>
+    body {
+        width:100%;
+        margin:0;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    }
+    div {
+        margin:0;
+    }
+    .grid_1 {
+        width: 6.5%;
+    }
+    .grid_2 {
+        width: 15%;
+    }
+    .grid_3 {
+        width: 23.5%;
+    }
+    .grid_4 {
+        width: 32%;
+        float: left;
+        display: block;
+        margin-left: 12%;
+    }
+    .grid_5 {
+        width: 40.5%;
+    }
+    .grid_6 {
+        width: 49%;
+    }
+    .grid_7 {
+        width: 57.5%;
+    }
+    .grid_8 {
+        width: 66%;
+    }
+    .grid_9 {
+        width: 74.5%;
+    }
+    .grid_10 {
+        width: 83%;
+    }
+    .grid_11 {
+        width: 91.5%;
+    }
+    .grid_12 {
+        width: 100%;
+    }
+    .grid_1, .grid_2, .grid_3, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11 {
+        margin: 0 0% 1% 1%;
+        float: left;
+        display: block;
+    }
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        overflow-x: hidden;
+    }
+    .clear {
+        clear:both;
+        display:block;
+        overflow:hidden;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    * html .clearfix, *:first-child+html .clearfix {
+        zoom:1
+    }
+    #landing {
+        background-color: black;
+        display:inline-block;
+        padding-bottom: 42px;
+    }
+    #about {
+        background-color: white;
+        display: inline-block;
+        padding-top: 28px;
+        padding-bottom: 62px;
+    }
+    #contact {
+        background-color: black;
+        display:inline-block;
+    }
+    #Splash {
+        width: 100%;
+        margin-top: 18px;
+    }
+    .intros {
+        color: white;
+        font-size: 1.8em;
+        width: 100%;
+        text-align: center;
+        margin-top: 27px;
+    }
+    .grid_6 > a {
+        position: relative;
+        font-size: 20px;
+        color: #CACACA;
+        display: block;
+        text-decoration: underline;
+    }
+    .grid_6 > a:hover {
+        color:#ffffff;
+    }
+    .grid_9>.intros:nth-of-type(1) {
+        margin-top: 0;
+        padding-top: 90px;
+    }
+    .grid_9>.intros:nth-of-type(2) {
+        margin-bottom: 162px;
+    }
+    .grid_9>.intros:nth-of-type(3) {
+    }
+   
+    .grid_4>img {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .grid_12>.intros {
+        color: black;
+        font-size: 34pt;
+    }
+    .grid_7>.intros {
+        text-align: left;
+        margin-left:32px;
+    }
+    .grid_5>img {
+        margin-left: 12.5%;
+        width: 75%;
+        border-radius: 24px;
+        margin-top: 27px;
+    }
+    @media only screen and (max-width: 600px) {
+        #Splash {
+            display:none;
+        }
+        #landing>div>a {
+            left:50%;
+            margin-left:-55px;
+        }
+        .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11 {
+            width:100%;
+        }
+        .grid_4 {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+        .grid_7>.intros {
+            text-align: center;
+            margin-left:0;
+            word-wrap: break-word;
+        }
+    }
+    </style>
+
+</head>
+<script src="jquery.js"></script>
+<script>
+</script>
+
+<body>
+    <div class='container clearfix'>
+        <div id='landing' class='grid_12'>
+            <div class='grid_9'>
+                <p class='intros'>Web and Mobile Product Developers</p>
+                <p class='intros'>Websites and Applications</p>
+                <div class='grid_6'>
+                    <p class='intros'>Recent Posts</p>
+                    <a>Making a Node.js Page Downloader</a>
+                    </br>
+                    <a>Replicating Google's App Launcher </a>
+                    </br>
+                    <a>Custom Data Types in JavaScript</a>
+                    </br>
+                    <a>What Web Designers can learn From Frank Lloyd Wright</a>
+                </div>
+            </div>
+            <div class='grid_3'>
+                <img alt="Artwork for Shidel.com by Joe Shidel" src='splash.png' id='Splash'></img>
+            </div>
+        </div>
+        <div id='about' class='grid_12'>
+            <h1 class='intros'>Projects</h1>
+            <div class='grid_4'>
+                <img src='viewFrames1.png' ></img>
+                <img src='green.png'></img>
+                <img src='opened.png'></img>
+            </div>
+            <div class='grid_4'>
+                <img src='tabbed.png'></img>
+                <img src='leap.png'></img>
+            </div>
+        </div>
+        <div id="contact" class='grid_12'>
+            <div class='grid_7'>
+                <h1 class='intros'>Contact Us</h1>
+                <p class='intros'>Phone: (412)-651-8438</p>
+                <p class='intros'>Email: contact@shidel.com</p>
+                <p class='intros'>GitHub:<a target="_top" href='https://github.com/shidel-dev'> https://github.com/shidel-dev</a>
+                </p>
+            </div>
+            <div class='grid_5'>
+                <img alt "Andrew Shidel and Joe Shidel" src="lights.jpg"></img>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

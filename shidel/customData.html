@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		Custom Data Types with JavaScript Tutorial
+	</title>
+	
+	<meta name="description" content="Custom Data Types with JavaScript Tutorial, by Andrew Shidel and Joe Shidel">
+
+	
+	<style>
+
+	body{background-color: #fff;}
+	
+		#main {
+			width: 80%;
+			margin-left: 10%;
+		}
+		
+		@media only screen and (max-width: 600px) {
+		
+			#main {
+				width:100%;
+				margin-left: 0%;
+			}
+		
+		}
+	
+	</style>
+	
+	<script>
+	
+		if ( window.self === window.top ) { window.location.href = "http://www.shidel.com/#customTypes" }
+	
+	</script>
+	
+</head>
+<body>
+
+<div id = "main">
+<br>
+<h1>Custom Data Types with JavaScript</h1><br>
+
+<p>Javascript allows us to create new data types using the prototype and function objects. Custom data types exist in some form in nearly every major object oriented language(usually referred to as 'class') and can help a programmer to write quicker, more efficient code that is easier to both read and write.</p>
+<br>
+<p>There are three common ways to create objects in JavaScript, but for this tutorial, I will be teaching the most common method of defining in a function-like format. This is, in my opinion, easier to learn, read, and write due to its familiar syntax.</p>
+<br>
+<p>To create a new data type you simply defining it as if it were a normal function, and then use the 'new' keyword to create a new instance of the object.</p>
+<br>
+<p>For example, we can define a three dimensional point as such:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> Point(x, y, z){
+     <span style="color: #008800; font-weight: bold">this</span>.X <span style="color: #333333">=</span> x;
+     <span style="color: #008800; font-weight: bold">this</span>.Y <span style="color: #333333">=</span> Y;
+     <span style="color: #008800; font-weight: bold">this</span>.Z <span style="color: #333333">=</span> z;
+}
+</pre></td></tr></table></div>
+<br>
+
+<p>This function can now be used like this:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">var</span> point <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Point(<span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">10</span>,<span style="color: #0000DD; font-weight: bold">30</span>);
+alert(point.X); <span style="color: #888888">//50</span>
+point.X <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+alert(point.X); <span style="color: #888888">//0</span>
+</pre></td></tr></table></div>
+<br>
+<p>Functionality can also be added by using the prototype object to create a method.</p>
+<p>This is done like so:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3</pre></td><td><pre style="margin: 0; line-height: 125%">Point.prototype.dst  <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span> (p2){
+     <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">Math</span>.sqrt( <span style="color: #007020">Math</span>.pow( <span style="color: #008800; font-weight: bold">this</span>.X <span style="color: #333333">-</span> p2.X ) <span style="color: #333333">+</span> <span style="color: #007020">Math</span>.pow( <span style="color: #008800; font-weight: bold">this</span>.Y <span style="color: #333333">-</span> p2.Y ) <span style="color: #333333">+</span> <span style="color: #007020">Math</span>.pow( <span style="color: #008800; font-weight: bold">this</span>.Z <span style="color: #333333">-</span> p2.Z )  );
+}
+</pre></td></tr></table></div>
+
+<br>
+<p>The prototype can now be used like this:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Point(<span style="color: #0000DD; font-weight: bold">10</span>, <span style="color: #0000DD; font-weight: bold">15</span>, <span style="color: #0000DD; font-weight: bold">20</span>);
+<span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Point(<span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">21</span>);
+<span style="color: #008800; font-weight: bold">var</span> distance <span style="color: #333333">=</span> p1.dst(p2);
+</pre></td></tr></table></div>
+
+<br>
+<p>Methods can also be defined internaly within the object's constructor through the 'this' keyword:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> Point(x, y, z){
+     <span style="color: #008800; font-weight: bold">this</span>.X <span style="color: #333333">=</span> x;
+     <span style="color: #008800; font-weight: bold">this</span>.Y <span style="color: #333333">=</span> y;
+     <span style="color: #008800; font-weight: bold">this</span>.Z <span style="color: #333333">=</span> z;
+     
+     <span style="color: #008800; font-weight: bold">this</span>.equals <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(p2){
+          <span style="color: #008800; font-weight: bold">return</span> ( <span style="color: #008800; font-weight: bold">this</span>.X <span style="color: #333333">==</span> p2.X <span style="color: #333333">&amp;&amp;</span> <span style="color: #008800; font-weight: bold">this</span>.Y <span style="color: #333333">==</span> p2.Y <span style="color: #333333">&amp;&amp;</span> <span style="color: #008800; font-weight: bold">this</span>.Z <span style="color: #333333">==</span> p2.Z );
+     }
+}
+
+<span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Point(<span style="color: #0000DD; font-weight: bold">10</span>, <span style="color: #0000DD; font-weight: bold">15</span>, <span style="color: #0000DD; font-weight: bold">20</span>);
+<span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Point(<span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">21</span>);
+
+console.log(p1.equals(p2)); <span style="color: #888888">//false</span>
+</pre></td></tr></table></div>
+
+</div>
+
+</body>
+</html>

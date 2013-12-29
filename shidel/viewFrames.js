@@ -108,6 +108,6 @@ var view = {
     sizeFrame: function(elem) {
 
         var el = document.getElementById(elem);
-        el.height = (el.contentWindow.document.body.offsetHeight) + "px";
+        el.height = (el.contentWindow.document.body.scrollHeight) + "px";
     }
 };

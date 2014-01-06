@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+<html lang="en">
+
+
+
+<head>
+
+
+    <script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushJScript.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Socket.IO introduction</title>
+    <style type="text/css">
+    body {
+        background-color: #fff;
+    }
+    p {
+        font-family: arial;
+        font-size: 16pt;
+    }
+    h1 {
+        font-size: 26pt;
+        text-align: center;
+    }
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <h1>Google Launcher Tutorial</h1>
+    <br/>
+    <p>Real time interaction is something that we have become accustomed to with mobile applications and many websites. With many server side languages this kind of functionality can be hard to achieve, and costly. however Node.js is built from the ground up for this sort of functionality, and with the help of a framework like socket.io it can be almost painless.</p>
+    <br/>
+    <p>I am going to walk through some of the basics for using socket.io in this article.  The first thing that you need to do is have node installed on your computer. there are many good guides on this topic, <a href='http://howtonode.org/how-to-install-nodejs'>like this one.</a></p>
+    <br/>
+    <p>Next you will need to install socket.io using node package manager. The command to do this will be npm socket.io.</p>
+    <script type="syntaxhighlighter" class="brush: js">
+    < ![CDATA[
+
+            var popup = document.getElementById('popup') var menu = document.getElementById('menu') menu.addEventListener("click", trigger) //adding event for clicks on launcher icon
+
+                function trigger() { //function handles bringing launcher up and down
+
+                    if (up == false) {
+                        popup.style.overflow = "hidden";
+                        more.style.height = "40px";
+                        container.style.visibility = 'visible';
+                        more.style.fontSize = "12pt"
+                        popup.scrollTop = 0;
+
+
+                        top = true;
+
+                        up = true;
+                    } else if (up == true) {
+
+                        container.style.visibility = 'hidden';
+                        up = false;
+
+
+                    }
+
+                }
+
+                function childOf(c, p) { // function detects if element is a child of another
+                    while ((c = c.parentNode) && c !== p);
+                    return !!c
+                }
+
+
+            window.addEventListener('click', function(e) { // handles click outside of launcher in order to hide it
+                eTarget = e.target
+                if (childOf(eTarget, popup) != true && eTarget != menu) {
+                    up = true;
+                    trigger();
+
+                }
+            })
+
+
+        }
+
+
+    ]] >
+    </script>
+    
+</body>
+
+
+
+</html>

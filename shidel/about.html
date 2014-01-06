@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+    if (window.self === window.top) {
+        window.location.href = "http://shidel.com/#about"
+    }
+    </script>
+    <style type="text/css">
+    body {
+        width:100%;
+        margin:0;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        background-color: #68B1BF;
+    }
+    div {
+        margin:0;
+    }
+    .grid_1 {
+        width: 6.5%;
+    }
+    .grid_2 {
+        width: 15%;
+    }
+    .grid_3 {
+        width: 23.5%;
+    }
+    .grid_4 {
+        width: 32%;
+    }
+    .grid_5 {
+        width: 40.5%;
+    }
+    .grid_6 {
+        width: 49%;
+    }
+    .grid_7 {
+        width: 57.5%;
+    }
+    .grid_8 {
+        width: 66%;
+    }
+    .grid_9 {
+        width: 74.5%;
+    }
+    .grid_10 {
+        width: 83%;
+    }
+    .grid_11 {
+        width: 96%;
+    }
+   
+    .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11 {
+        margin: 0 0% 1% 1%;
+        float: left;
+        display: block;
+    }
+     .grid_12 {
+        width: 100%;
+        border-top: 1px solid;
+        float: left;
+        display: block;
+        padding-top: 15px;
+    }
+
+    .container > .grid_12:nth-of-type(2) {border:none;}
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        overflow-x: hidden;
+    }
+    .clear {
+        clear:both;
+        display:block;
+        overflow:hidden;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    .right {
+        float:right;
+    }
+    * html .clearfix, *:first-child+html .clearfix {
+        zoom:1
+    }
+    h1 {
+        font-size: 24pt;
+        letter-spacing: -1.5px;
+        padding-right:15px;
+    }
+    .grid_12 > h2 {
+        line-height: 98px;
+        margin:0;
+    }
+
+    #intro {
+        margin:40px 0 75px 0;
+    }
+    img {
+        max-width: 100%;
+    }
+    .grid_3 > img {
+        width: 176px;
+        margin-top: 43px;
+        max-width: 176px
+    }
+    .face {
+        width: 98px;
+        float: left;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    @media screen and (max-width:762px) {
+        #intro {
+            width:60%;
+            margin: 84px 0 75px 43px;
+        }
+    }
+    /*iphone*/
+    @media screen and (max-width:600px) {
+        .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12 {
+            width: 100%;
+            margin-left:0;
+        }
+        #intro {
+            width: 100%;
+            margin:0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class='container clearfix'>
+            <div class='grid_12'>
+
+                <div id="intro" class="grid_10">
+                    <h1>Hey there! Let us share a little about ourselves with you...</h1>
+                </div>
+
+                <div class='grid_9 right'>
+                    <h2>We are two programmers, hackers, and brothers from Pittsburgh, PA. Our passion is making amazing software, and learning while we're at it.</h2>
+                </div>
+                <div class="grid_12">
+                    <img src='joe.png' class='face'></img>
+                    <h2>Joseph Shidel</h2>
+                </div>
+                <div class="grid_12">
+                    <img src='andrew.png' class='face'></img>
+                    <h2>Andrew Shidel</h2>
+                </div>
+            </div>
+
+        </div>
+
+</body>
+
+</html>

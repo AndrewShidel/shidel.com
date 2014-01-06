@@ -51,21 +51,21 @@
     .grid_11 {
         width: 96%;
     }
-   
     .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11 {
         margin: 0 0% 1% 1%;
         float: left;
         display: block;
     }
-     .grid_12 {
+    .grid_12 {
         width: 100%;
         border-top: 1px solid;
         float: left;
         display: block;
         padding-top: 15px;
     }
-
-    .container > .grid_12:nth-of-type(2) {border:none;}
+    #second {
+        border:none;
+    }
     .container {
         width: 100%;
         max-width: 1200px;
@@ -105,9 +105,8 @@
         line-height: 98px;
         margin:0;
     }
-
     #intro {
-        margin:40px 0 75px 0;
+        margin:40px 0 75px 15px;
     }
     img {
         max-width: 100%;
@@ -159,7 +158,15 @@
                     <img src='joe.png' class='face'></img>
                     <h2>Joseph Shidel</h2>
                 </div>
-                <div class="grid_12">
+                <div id="intro" class="grid_10">
+                    <p>I am full stack developer experienced in front-end development, ruby on rails, node.js, and scala.</p>
+                    <p>My college education is in business, and I have experience in consulting, and working with technology companies.</p>
+                    <p>After being a hobbyist programmer for years, I committed half a year to attending <a href='http://devbootcamp.com'>Dev Bootcamp</a>. This has allowed me to take my skills to the next level, and meet some really amazing people.</p>
+                    <p>I am experienced with many javaScript libraries, I am particularly interested in backbone.js, socket.io, jquery, and express for node.js.</p>
+                    
+
+                </div>
+                <div id='second' class="grid_12">
                     <img src='andrew.png' class='face'></img>
                     <h2>Andrew Shidel</h2>
                 </div>

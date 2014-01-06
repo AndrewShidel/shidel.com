@@ -1,145 +1,147 @@
 @charset"utf-8";
- html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p {
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
+    font-family: inherit
 }
 body {
-    background-image:url('fabric_plaid.png');
+    background: url(fabric_plaid.png)
 }
 .header {
-    position:fixed;
-    top:0%;
-    left:0%;
-    background-color:#cd301f;
-    height:58px;
-    width:100%;
-    z-index:2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 58px;
+    width: 100%;
+    z-index: 2;
     font: 22px Georgia, serif;
-    color:black;
+    color: #000;
+    background: #cd301f
 }
 .column {
     width: 1200px;
-    background-color: white;
     height: 100%;
     margin: auto;
     left: 9%;
+    background: #fff
 }
 #drop {
     visibility: hidden;
+    height: 159px;
+    visibility: hidden
 }
 #nav {
     height: 100%;
     display: none;
     float: right;
-    padding-right: 2%;
+    padding-right: 2%
 }
 #data {
-    width:100%;
+    width: 100%
 }
 #container {
     position: absolute;
     height: 92%;
     top: 58px;
-    width: 100%;
+    width: 100%
 }
 #banner {
     position: absolute;
-    left:40%;
-    width:20%;
-    height:100%;
-    display:table;
-    font-size:150%;
-    -webkit-box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.5);
-    -moz-box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.5);
-    box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.5);
+    left: 40%;
+    width: 20%;
+    height: 100%;
+    display: table;
+    font-size: 150%;
+    -webkit-box-shadow: 1px 1px 17px rgba(50, 50, 50, .5);
+    -moz-box-shadow: 1px 1px 17px rgba(50, 50, 50, .5);
+    box-shadow: 1px 1px 17px rgba(50, 50, 50, .5)
 }
 #about {
     position: absolute;
-    left:1.5%;
-    width:15%;
-    height:100%;
-    display:table;
+    left: 1.5%;
+    width: 15%;
+    height: 100%;
+    display: table;
     min-width: 75px;
-    -webkit-box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.5);
-    -moz-box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.5);
-    box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.5);
+    -webkit-box-shadow: 1px 1px 17px rgba(50, 50, 50, .5);
+    -moz-box-shadow: 1px 1px 17px rgba(50, 50, 50, .5);
+    box-shadow: 1px 1px 17px rgba(50, 50, 50, .5)
 }
 #projects {
     position: absolute;
-    left:82%;
-    width:8%;
-    height:100%;
-    display:table;
+    left: 82%;
+    width: 8%;
+    height: 100%;
+    display: table;
     min-width: 75px;
-    -webkit-box-shadow: -1px 1px 17px rgba(50, 50, 50, 0.5);
-    -moz-box-shadow: -1px 1px 17px rgba(50, 50, 50, 0.5);
-    box-shadow: -1px 1px 17px rgba(50, 50, 50, 0.5);
+    -webkit-box-shadow: -1px 1px 17px rgba(50, 50, 50, .5);
+    -moz-box-shadow: -1px 1px 17px rgba(50, 50, 50, .5);
+    box-shadow: -1px 1px 17px rgba(50, 50, 50, .5)
 }
 #articles {
     position: absolute;
-    left:92%;
-    width:8%;
-    height:100%;
-    display:table;
-    -webkit-box-shadow: -1px 1px 17px rgba(50, 50, 50, 0.5);
-    -moz-box-shadow: -1px 1px 17px rgba(50, 50, 50, 0.5);
-    box-shadow: -1px 1px 17px rgba(50, 50, 50, 0.5);
+    left: 92%;
+    width: 8%;
+    height: 100%;
+    display: table;
+    -webkit-box-shadow: -1px 1px 17px rgba(50, 50, 50, .5);
+    -moz-box-shadow: -1px 1px 17px rgba(50, 50, 50, .5);
+    box-shadow: -1px 1px 17px rgba(50, 50, 50, .5)
 }
 #header>a {
     line-height: 58px;
     text-align: center;
     text-decoration: none;
-    color:black;
-    cursor: pointer;
+    color: #000;
+    cursor: pointer
 }
 @media only screen and (max-width: 1200px) {
     .column {
-        left:0%;
-        width:960px;
+        left: 0;
+        width: 960px
     }
 }
 @media only screen and (max-width: 960px) {
     .column {
-        width:100%;
-        height:100%;
-        top:58px
+        width: 100%;
+        height: 100%;
+        top: 58px
     }
 }
 @media only screen and (max-width: 810px) {
     #about {
-        display:none;
+        display: none
     }
     #projects {
-        display:none;
+        display: none
     }
     #articles {
-        display:none;
+        display: none
     }
     #banner {
-        left:0;
+        left: 0
     }
     #nav {
-        display: block;
+        display: block
     }
-    li >a {
+    li>a {
         display: block;
         width: 100%;
         text-decoration: none;
         line-height: 88px;
         font-size: 18pt;
-        color: #000;
+        color: #000
     }
     li:nth-of-type(1) {
-        margin-left: 2%;
+        margin-left: 2%
     }
     li {
         width: 32%;
         display: inline-block;
-        text-align: center;
+        text-align: center
     }
     #drop {
         width: 100%;
@@ -149,24 +151,19 @@ body {
         margin-top: 58px;
         position: fixed;
         z-index: 2;
-        background-color: #CD741F;
         height: 88px;
         visibility: hidden;
+        background: #cd741f
     }
 }
 @media only screen and (max-width: 412px) {
     li:nth-of-type(1) {
         margin-left: 0;
     }
-    li >a {
-        line-height: 52px;
+    li>a {
+        line-height: 52px
     }
-    li{
+    li {
         width: 100%;
-        border-bottom:1px solid;
+        border-bottom: 1px solid
     }
-    #drop {
-        height: 159px;
-        visibility: hidden;
-    }
-}

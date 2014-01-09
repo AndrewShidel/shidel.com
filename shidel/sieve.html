@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viewFrames documentation</title>
+    <script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushRuby.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <base target="_parent"> 
+    <script> 
+        if ( window.self === window.top ){
+            window.location.href = "../sieve.html"
+        }
+    </script>
+    <style type="text/css">
+    body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
+    }
+    div {
+        margin:0;
+    }
+    
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    h1 {
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+
+    .box{
+        width: 50%;
+        background-color: #FFF;
+        overflow-wrap: break-word;
+    }
+    @media screen and (max-width:680px) {
+       .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .box {
+                width: 95%;
+                margin-left: 2.5%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container clearfix">
+        <h1>Sieve of Eratosthenes in Ruby</h1>
+
+
+<p>Sieve of Eratosthenes is a algorithm for finding all prime numbers below a given number.   It is one of the most efficient ways to find prime numbers up until you are calculating up into millions.  The basic concept is that a you can eliminate all of the non prime numbers by testing their divisibility by prime numbers starting with 2 and working up.</p>
+<br/>
+
+<p>This is a visual representation of how this algorithm works: </p>
+<img src='http://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif'/>
+
+<p>My approach to this problem is to first take the set of the first four prime numbers ( [2,3,5,7] ), and use each to reduce the complete set of numbers.  Using the modulus operator you can test if each number is divisible by one of these primes, and if it is you can  remove from the set. </p>  
+
+
+<p>This is the code that I have come up with:</p>
+
+<pre class="brush: ruby">
+def eratosthenes_sieve(n)
+  numbers = (2..n).to_a
+  [2,3,5,7].each do |t|
+    numbers.each_with_index do |value,index|
+      if value != t 
+        if value % t == 0 
+          numbers.delete_at(index)
+        end
+      end  
+    end # end .each_with_index
+  end # end .each
+numbers
+end
+
+</pre>
+
+
+</div>
+
+<script type="text/javascript">SyntaxHighlighter.all()</script>    
+</body>
+
+</html>

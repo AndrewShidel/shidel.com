@@ -4,11 +4,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <base target='_parent'>
-     <script type="text/javascript">if ( window.self === window.top ){
-         window.location.href = "http://shidel.com/#projects"
-     }</script>
+    <script type="text/javascript">
+    if (window.self === window.top) {
+        window.location.href = "http://shidel.com/#projects"
+    }
+    </script>
     <style type="text/css">
-
     body {
         width:100%;
         margin:0;
@@ -96,19 +97,18 @@
         margin-top: 48px;
         background-color: #FFF;
     }
-    .link {
-        width:50px;
+    .link > img {
+        position: relative;
+        width: 50px;
+        margin-left: 50%;
+        left: -80px;
+    }
+    #r-img {
+        margin-left: 0;
+        padding-left: 20px;
     }
     .icon {
         width:100%;
-    }
-    div > .link:nth-of-type(2) {
-        position: relative;
-        margin-left: 50%;
-        left: -70px;
-    }
-    div > .link:nth-of-type(3) {
-        margin-left: -50px;
     }
     .card:nth-of-type(5) {
         margin-bottom: 48px;
@@ -132,8 +132,12 @@
             <div class='card grid_11'>
                 <div class='grid_4'>
                     <img class='icon' src='viewFrames1.png'></img>
-                    <img class='link' src='GitHub.png'></img>
-                    <img class='link' src='link.png'></img>
+                    <a class='link'>
+                        <img src='GitHub.png'></img>
+                    </a>
+                    <a class='link'>
+                        <img id='r-img' src='link.png'></img>
+                    </a>
                 </div>
                 <p class='grid_8'>
                     ViewFrames is a lightweight JavaScript framework, which treats iframes as a first class citizen of the web. ViewFrames allows for an iframe based MVC pattern, which facilitates painless and high performance one page applications.
@@ -142,41 +146,57 @@
             <div class='card grid_11'>
                 <div class='grid_4'>
                     <img class='icon' src='tabbed.png'></img>
-                    <img class='link' src='GitHub.png'></img>
-                    <img class='link' src='link.png'></img>
+                    <a class='link'>
+                        <img src='GitHub.png'></img>
+                    </a>
+                    <a class='link'>
+                        <img id='r-img' src='link.png'></img>
+                    </a>
                 </div>
                 <p class='grid_8'>
-                   Tab Out! is a simple but empowering extension for chrome.  Tab Out! frees you from the mess of tabs that we all get ourselves into.  It allows you to close all of your tabs, while saving the session in Tab Out! for future use.  You can restore them all or just one at a time.  Also, keep quick links to favorites and setups that you use often.  
+                    Tab Out! is a simple but empowering extension for chrome. Tab Out! frees you from the mess of tabs that we all get ourselves into. It allows you to close all of your tabs, while saving the session in Tab Out! for future use. You can restore them all or just one at a time. Also, keep quick links to favorites and setups that you use often.
                 </p>
             </div>
             <div class='card grid_11'>
                 <div class='grid_4'>
                     <img class='icon' src='leap.png'></img>
-                    <a href='https://github.com/shidel-dev/Chrome-Leap-Tools' ><img class='link' src='GitHub.png'></img></a>
-                    <img class='link' src='link.png'></img>
+                    <a class='link'>
+                        <img src='GitHub.png'></img>
+                    </a>
+                    <a class='link'>
+                        <img id='r-img' src='link.png'></img>
+                    </a>
                 </div>
                 <p class='grid_8'>
-                Navigate chrome using your Leap Motion Controller.  Using the built in settings, you can configure each gesture and the level of sensitivity that you prefer. Achieve tasks like scrolling, navigation the history, and closing tabs. 
+                    Navigate chrome using your Leap Motion Controller. Using the built in settings, you can configure each gesture and the level of sensitivity that you prefer. Achieve tasks like scrolling, navigation the history, and closing tabs.
                 </p>
             </div>
             <div class='card grid_11'>
                 <div class='grid_4'>
                     <img class='icon' src='green.png'></img>
-                    <img class='link' src='GitHub.png'></img>
-                    <img class='link' src='link.png'></img>
+                    <a class='link'>
+                        <img src='GitHub.png'></img>
+                    </a>
+                    <a class='link'>
+                        <img id='r-img' src='link.png'></img>
+                    </a>
                 </div>
-                 <p class='grid_8'>
-                 Green screen photography is an easy, and powerful way to achieve green screen effects with you phones camera. It allows you to layer multiple photos and remove a desired range of colors, in order to achieve amazing effects. 
+                <p class='grid_8'>
+                    Green screen photography is an easy, and powerful way to achieve green screen effects with you phones camera. It allows you to layer multiple photos and remove a desired range of colors, in order to achieve amazing effects.
                 </p>
             </div>
             <div class='card grid_11'>
                 <div class='grid_4'>
                     <img class='icon' src='opened.png'></img>
-                    <img class='link' src='GitHub.png'></img>
-                    <img class='link' src='link.png'></img>
+                    <a class='link'>
+                        <img src='GitHub.png'></img>
+                    </a>
+                    <a class='link'>
+                        <img id='r-img' src='link.png'></img>
+                    </a>
                 </div>
                 <p class='grid_8'>
-                Opened-fire is a post-apocalyptic shooter game built with HTML5 and JavaScript.
+                    Opened-fire is a post-apocalyptic shooter game built with HTML5 and JavaScript.
                 </p>
             </div>
         </div>

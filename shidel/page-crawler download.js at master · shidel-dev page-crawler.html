@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://github.com/shidel-dev/page-crawler/blob/master/download.js -->
+<html><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>page-crawler/download.js at master · shidel-dev/page-crawler</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="logo" type="image/svg" href="https://github-media-downloads.s3.amazonaws.com/github-logo.svg">
+    <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
+    <meta name="hostname" content="github-fe117-cp1-prd.iad.github.net">
+    <meta name="ruby" content="ruby 2.1.0p0-github-tcmalloc (60139581e1) [x86_64-linux]">
+    <link rel="assets" href="https://github.global.ssl.fastly.net/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    <link rel="xhr-socket" href="https://github.com/_sockets">
+    
+
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="4A7A09C4:2C59:A0E9523:52D03D7E" name="octolytics-dimension-request_id"><meta content="5149882" name="octolytics-actor-id"><meta content="shidel-dev" name="octolytics-actor-login"><meta content="3c336531462c84f0fe9b81601b2109b68a3b3cc1f7a5fe43a34f7a6142f610b8" name="octolytics-actor-hash">
+    
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://github.com/favicon.ico">
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="xmv1uoj4mVG4tTZJ7iCzx886BS47kai8b6wcoaXzXiU=" name="csrf-token">
+
+    <link href="./page-crawler download.js at master · shidel-dev page-crawler_files/github-dd43831e1109a065ffca6f93bcbb704315e52406.css" media="all" rel="stylesheet" type="text/css">
+    <link href="./page-crawler download.js at master · shidel-dev page-crawler_files/github2-9e158f925f5a959b013981f610f00752457835f9.css" media="all" rel="stylesheet" type="text/css">
+    
+
+    
+
+      <script src="./page-crawler download.js at master · shidel-dev page-crawler_files/frameworks-d4d23eefcbed557582cde6209ccd824fb98255d8.js" type="text/javascript"></script><style type="text/css"></style>
+      <script src="./page-crawler download.js at master · shidel-dev page-crawler_files/github-b62a0c5e6a7d839c9a49232cf4403050494bb8a4.js" type="text/javascript"></script><script type="text/javascript" async="" src="./page-crawler download.js at master · shidel-dev page-crawler_files/ga.js"></script>
+      
+      <meta http-equiv="x-pjax-version" content="7b9a3aa7ea9dffef53355e45860c1ac1">
+
+        <meta property="og:title" content="page-crawler">
+  <meta property="og:type" content="githubog:gitrepository">
+  <meta property="og:url" content="https://github.com/shidel-dev/page-crawler">
+  <meta property="og:image" content="https://github.global.ssl.fastly.net/images/gravatars/gravatar-user-420.png">
+  <meta property="og:site_name" content="GitHub">
+  <meta property="og:description" content="Contribute to page-crawler development by creating an account on GitHub.">
+
+  <meta name="description" content="Contribute to page-crawler development by creating an account on GitHub.">
+
+  <meta content="5149882" name="octolytics-dimension-user_id"><meta content="shidel-dev" name="octolytics-dimension-user_login"><meta content="15010831" name="octolytics-dimension-repository_id"><meta content="shidel-dev/page-crawler" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="15010831" name="octolytics-dimension-repository_network_root_id"><meta content="shidel-dev/page-crawler" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/shidel-dev/page-crawler/commits/master.atom" rel="alternate" title="Recent Commits to page-crawler:master" type="application/atom+xml">
+
+  <script type="text/javascript" async="" src="./page-crawler download.js at master · shidel-dev page-crawler_files/api.js"></script><meta name="selected-link" value="repo_source" data-pjax-transient="true"><link data-pjax-transient="true" rel="permalink" href="https://github.com/shidel-dev/page-crawler/blob/56b5bad35005429a6f0f8e8b5ab5c4a98542cdc4/download.js"></head>
+
+
+  <body class="logged_in  env-production macintosh vis-public">
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      <div class="header header-logged-in true">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/">
+  <span class="mega-octicon octicon-mark-github"></span>
+</a>
+
+    
+    <a href="https://github.com/notifications" class="notification-indicator tooltipped downwards" data-gotokey="n" original-title="You have unread notifications">
+        <span class="mail-status unread"></span>
+</a>
+
+      <div class="command-bar js-command-bar  in-repository">
+          <form accept-charset="UTF-8" action="https://github.com/search" class="command-bar-form" id="top_search_form" method="get">
+
+<input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off" data-username="shidel-dev" data-repo="shidel-dev/page-crawler" data-branch="master" data-sha="90e26db3fc61403e9d34471adb6289d9a8546e66">
+
+    <input type="hidden" name="nwo" value="shidel-dev/page-crawler">
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked">
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" name="search_target" value="global">
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="octicon help tooltipped downwards" original-title="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input type="hidden" name="ref" value="cmdform">
+
+</form>
+        <ul class="top-nav">
+          <li class="explore"><a href="https://github.com/explore">Explore</a></li>
+            <li><a href="https://gist.github.com/">Gist</a></li>
+            <li><a href="https://github.com/blog">Blog</a></li>
+          <li><a href="https://help.github.com/">Help</a></li>
+        </ul>
+      </div>
+
+    
+
+
+  <ul id="user-links">
+    <li>
+      <a href="https://github.com/shidel-dev" class="name">
+        <img height="20" src="./page-crawler download.js at master · shidel-dev page-crawler_files/370c90b8e3fcf38535a9631884bbbfa6" width="20"> shidel-dev
+      </a>
+    </li>
+
+      <li class="new-menu dropdown-toggle js-menu-container">
+        <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" class="js-menu-target tooltipped downwards" original-title="Create new…">
+          <span class="octicon octicon-plus"></span>
+          <span class="dropdown-arrow"></span>
+        </a>
+
+        <div class="js-menu-content">
+        </div>
+      </li>
+
+      <li>
+        <a href="https://github.com/settings/profile" id="account_settings" class="tooltipped downwards" aria-label="Account settings " original-title="Account settings ">
+          <span class="octicon octicon-tools"></span>
+        </a>
+      </li>
+      <li>
+        <a class="tooltipped downwards" href="https://github.com/logout" data-method="post" id="logout" aria-label="Sign out" original-title="Sign out">
+          <span class="octicon octicon-log-out"></span>
+        </a>
+      </li>
+
+  </ul>
+
+<div class="js-new-dropdown-contents hidden">
+  
+
+<ul class="dropdown-menu">
+  <li>
+    <a href="https://github.com/new"><span class="octicon octicon-repo-create"></span> New repository</a>
+  </li>
+  <li>
+    <a href="https://github.com/organizations/new"><span class="octicon octicon-organization"></span> New organization</a>
+  </li>
+
+
+
+    <li class="section-title">
+      <span title="shidel-dev/page-crawler">This repository</span>
+    </li>
+      <li>
+        <a href="https://github.com/shidel-dev/page-crawler/issues/new"><span class="octicon octicon-issue-opened"></span> New issue</a>
+      </li>
+      <li>
+        <a href="https://github.com/shidel-dev/page-crawler/settings/collaboration"><span class="octicon octicon-person-add"></span> New collaborator</a>
+      </li>
+</ul>
+
+</div>
+
+
+    
+  </div>
+</div>
+
+      
+
+      
+
+
+
+
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+
+<ul class="pagehead-actions">
+
+    <li class="subscription">
+      <form accept-charset="UTF-8" action="https://github.com/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="xmv1uoj4mVG4tTZJ7iCzx886BS47kai8b6wcoaXzXiU="></div>  <input id="repository_id" name="repository_id" type="hidden" value="15010831">
+
+    <div class="select-menu js-menu-container js-select-menu">
+      <a class="social-count js-social-count" href="https://github.com/shidel-dev/page-crawler/watchers">
+        1
+      </a>
+      <span class="minibutton select-menu-button with-count js-menu-target" role="button" tabindex="0">
+        <span class="js-select-button">
+          <span class="octicon octicon-eye-unwatch"></span>
+          Unwatch
+        </span>
+      </span>
+
+      <div class="select-menu-modal-holder">
+        <div class="select-menu-modal subscription-menu-modal js-menu-content">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Notification status</span>
+            <span class="octicon octicon-remove-close js-menu-close"></span>
+          </div> <!-- /.select-menu-header -->
+
+          <div class="select-menu-list js-navigation-container" role="menu">
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_included" name="do" type="radio" value="included">
+                <h4>Not watching</h4>
+                <span class="description">You only receive notifications for conversations in which you participate or are @mentioned.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye-watch"></span>
+                  Watch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input checked="checked" id="do_subscribed" name="do" type="radio" value="subscribed">
+                <h4>Watching</h4>
+                <span class="description">You receive notifications for all conversations in this repository.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye-unwatch"></span>
+                  Unwatch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_ignore" name="do" type="radio" value="ignore">
+                <h4>Ignoring</h4>
+                <span class="description">You do not receive any notifications for conversations in this repository.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-mute"></span>
+                  Stop ignoring
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+          </div> <!-- /.select-menu-list -->
+
+        </div> <!-- /.select-menu-modal -->
+      </div> <!-- /.select-menu-modal-holder -->
+    </div> <!-- /.select-menu -->
+
+</form>
+    </li>
+
+  <li>
+  
+
+  <div class="js-toggler-container js-social-container starring-container ">
+    <a href="https://github.com/shidel-dev/page-crawler/unstar" class="minibutton with-count js-toggler-target star-button starred upwards" title="Unstar this repository" data-remote="true" data-method="post" rel="nofollow">
+      <span class="octicon octicon-star-delete"></span><span class="text">Unstar</span>
+    </a>
+
+    <a href="https://github.com/shidel-dev/page-crawler/star" class="minibutton with-count js-toggler-target star-button unstarred upwards" title="Star this repository" data-remote="true" data-method="post" rel="nofollow">
+      <span class="octicon octicon-star"></span><span class="text">Star</span>
+    </a>
+
+      <a class="social-count js-social-count" href="https://github.com/shidel-dev/page-crawler/stargazers">
+        0
+      </a>
+  </div>
+
+  </li>
+
+
+        <li>
+          <a href="https://github.com/shidel-dev/page-crawler/fork" class="minibutton with-count js-toggler-target fork-button lighter upwards" title="Fork this repo" rel="nofollow" data-method="post">
+            <span class="octicon octicon-git-branch-create"></span><span class="text">Fork</span>
+          </a>
+          <a href="https://github.com/shidel-dev/page-crawler/network" class="social-count">0</a>
+        </li>
+
+
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="repo-label"><span>public</span></span>
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author">
+            <a href="https://github.com/shidel-dev" class="url fn" itemprop="url" rel="author"><span itemprop="title">shidel-dev</span></a>
+          </span>
+          <span class="repohead-name-divider">/</span>
+          <strong><a href="https://github.com/shidel-dev/page-crawler" class="js-current-repository js-repo-home-link">page-crawler</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="Octocat-spinner-32" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      
+
+      <div class="repository-with-sidebar repo-container">
+
+        <div class="repository-sidebar">
+            
+
+<div class="sunken-menu vertical-right repo-nav js-repo-nav js-repository-container-pjax js-octicon-loaders">
+  <div class="sunken-menu-contents">
+    <ul class="sunken-menu-group">
+      <li class="tooltipped leftwards" original-title="Code">
+        <a href="https://github.com/shidel-dev/page-crawler" aria-label="Code" class="js-selected-navigation-item sunken-menu-item selected" data-gotokey="c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /shidel-dev/page-crawler">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+        <li class="tooltipped leftwards" original-title="Issues">
+          <a href="https://github.com/shidel-dev/page-crawler/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-gotokey="i" data-selected-links="repo_issues /shidel-dev/page-crawler/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class="counter">0</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+</a>        </li>
+
+      <li class="tooltipped leftwards" original-title="Pull Requests">
+        <a href="https://github.com/shidel-dev/page-crawler/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-gotokey="p" data-selected-links="repo_pulls /shidel-dev/page-crawler/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class="counter">0</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+
+        <li class="tooltipped leftwards" original-title="Wiki">
+          <a href="https://github.com/shidel-dev/page-crawler/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_wiki /shidel-dev/page-crawler/wiki">
+            <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+</a>        </li>
+    </ul>
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
+
+      <li class="tooltipped leftwards" original-title="Pulse">
+        <a href="https://github.com/shidel-dev/page-crawler/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="pulse /shidel-dev/page-crawler/pulse">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+      <li class="tooltipped leftwards" original-title="Graphs">
+        <a href="https://github.com/shidel-dev/page-crawler/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_graphs repo_contributors /shidel-dev/page-crawler/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+      <li class="tooltipped leftwards" original-title="Network">
+        <a href="https://github.com/shidel-dev/page-crawler/network" aria-label="Network" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-selected-links="repo_network /shidel-dev/page-crawler/network">
+          <span class="octicon octicon-git-branch"></span> <span class="full-word">Network</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+    </ul>
+
+
+      <div class="sunken-menu-separator"></div>
+      <ul class="sunken-menu-group">
+        <li class="tooltipped leftwards" original-title="Settings">
+          <a href="https://github.com/shidel-dev/page-crawler/settings" class="sunken-menu-item" data-pjax="" aria-label="Settings">
+            <span class="octicon octicon-tools"></span> <span class="full-word">Settings</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" height="16" src="./page-crawler download.js at master · shidel-dev page-crawler_files/octocat-spinner-32.gif" width="16">
+          </a>
+        </li>
+      </ul>
+  </div>
+</div>
+
+            <div class="only-with-full-nav">
+              
+
+  
+
+<div class="clone-url " data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=push">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field" value="https://github.com/shidel-dev/page-crawler.git" readonly="readonly">
+
+    <span class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/shidel-dev/page-crawler.git" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
+
+  
+
+<div class="clone-url " data-protocol-type="ssh" data-url="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=push">
+  <h3><strong>SSH</strong> clone URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field" value="git@github.com:shidel-dev/page-crawler.git" readonly="readonly">
+
+    <span class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="git@github.com:shidel-dev/page-crawler.git" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
+
+  
+
+<div class="clone-url open" data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=push">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+  <div class="clone-url-box">
+    <input type="text" class="clone js-url-field" value="https://github.com/shidel-dev/page-crawler" readonly="readonly">
+
+    <span class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/shidel-dev/page-crawler" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
+
+
+<p class="clone-options">You can clone with
+      <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" class="js-clone-selector" data-protocol="http">HTTPS</a>,
+      <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" class="js-clone-selector" data-protocol="ssh">SSH</a>,
+      or <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <span class="octicon help tooltipped upwards" original-title="Get help on which URL is right for you.">
+    <a href="https://help.github.com/articles/which-remote-url-should-i-use">
+    <span class="octicon octicon-question"></span>
+    </a>
+  </span>
+</p>
+
+  <a href="http://mac.github.com/" data-url="github-mac://openRepo/https://github.com/shidel-dev/page-crawler" class="minibutton sidebar-button js-conduit-rewrite-url">
+    <span class="octicon octicon-device-desktop"></span>
+    Clone in Desktop
+  </a>
+
+
+              <a href="https://github.com/shidel-dev/page-crawler/archive/master.zip" class="minibutton sidebar-button" title="Download this repository as a zip file" rel="nofollow">
+                <span class="octicon octicon-cloud-download"></span>
+                Download ZIP
+              </a>
+            </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+  
+
+
+<!-- blob contrib key: blob_contributors:v21:45cb66916c8ee6f952e14ae01504f0fc -->
+
+<p title="This is a placeholder element" class="js-history-link-replace hidden"></p>
+
+<a href="https://github.com/shidel-dev/page-crawler/find/master" data-pjax="" data-hotkey="t" class="js-show-file-finder" style="display:none">Show File Finder</a>
+
+<div class="file-navigation">
+  
+
+<div class="select-menu js-menu-container js-select-menu">
+  <span class="minibutton select-menu-button js-menu-target" data-hotkey="w" data-master-branch="master" data-ref="master" role="button" aria-label="Switch branches or tags" tabindex="0">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax="">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-remove-close js-menu-close"></span>
+      </div> <!-- /.select-menu-header -->
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Find or create a branch…" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Find or create a branch…">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div><!-- /.select-menu-tabs -->
+      </div><!-- /.select-menu-filters -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item selected">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="./page-crawler download.js at master · shidel-dev page-crawler_files/page-crawler download.js at master · shidel-dev page-crawler.html" data-name="master" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" title="master">master</a>
+            </div> <!-- /.select-menu-item -->
+        </div>
+
+          <form accept-charset="UTF-8" action="https://github.com/shidel-dev/page-crawler/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="xmv1uoj4mVG4tTZJ7iCzx886BS47kai8b6wcoaXzXiU="></div>
+            <span class="octicon octicon-git-branch-create select-menu-item-icon"></span>
+            <div class="select-menu-item-text">
+              <h4>Create branch: <span class="js-new-item-name"></span></h4>
+              <span class="description">from ‘master’</span>
+            </div>
+            <input type="hidden" name="name" id="name" class="js-new-item-value">
+            <input type="hidden" name="branch" id="branch" value="master">
+            <input type="hidden" name="path" id="path" value="download.js">
+          </form> <!-- /.select-menu-item -->
+
+      </div> <!-- /.select-menu-list -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+    </div> <!-- /.select-menu-modal -->
+  </div> <!-- /.select-menu-modal-holder -->
+</div> <!-- /.select-menu -->
+
+  <div class="breadcrumb">
+    <span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://github.com/shidel-dev/page-crawler" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">page-crawler</span></a></span></span><span class="separator"> / </span><strong class="final-path">download.js</strong> <span class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="download.js" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
+
+
+  <div class="commit file-history-tease">
+    <img class="main-avatar" height="24" src="./page-crawler download.js at master · shidel-dev page-crawler_files/370c90b8e3fcf38535a9631884bbbfa6(1)" width="24">
+    <span class="author"><a href="https://github.com/shidel-dev" rel="author">shidel-dev</a></span>
+    <time class="js-relative-date" datetime="2014-01-08T17:58:31-08:00" title="2014-01-08 17:58:31">2 days ago</time>
+    <div class="commit-title">
+        <a href="https://github.com/shidel-dev/page-crawler/commit/56b5bad35005429a6f0f8e8b5ab5c4a98542cdc4" class="message" data-pjax="true" title="added new socket.io event for downloading">added new socket.io event for downloading</a>
+    </div>
+
+    <div class="participation">
+      <p class="quickstat"><a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#blob_contributors_box" rel="facebox"><strong>1</strong> contributor</a></p>
+      
+    </div>
+    <div id="blob_contributors_box" style="display:none">
+      <h2 class="facebox-header">Users who have contributed to this file</h2>
+      <ul class="facebox-user-list">
+          <li class="facebox-user-list-item">
+            <img height="24" src="./page-crawler download.js at master · shidel-dev page-crawler_files/370c90b8e3fcf38535a9631884bbbfa6(1)" width="24">
+            <a href="https://github.com/shidel-dev">shidel-dev</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+<div id="files" class="bubble">
+  <div class="file">
+    <div class="meta">
+      <div class="info">
+        <span class="icon"><b class="octicon octicon-file-text"></b></span>
+        <span class="mode" title="File Mode">file</span>
+          <span>72 lines (52 sloc)</span>
+        <span>1.545 kb</span>
+      </div>
+      <div class="actions">
+        <div class="button-group">
+            <a class="minibutton tooltipped leftwards js-conduit-openfile-check disabled" href="http://mac.github.com/" data-url="github-mac://openRepo/https://github.com/shidel-dev/page-crawler?branch=master&amp;filepath=download.js" data-failed-title="Your version of GitHub for Mac is too old to open this file. Try checking for updates." original-title="Open this file in GitHub for Mac" title="Your version of GitHub for Mac is too old to open this file. Try checking for updates.">
+                <span class="octicon octicon-device-desktop"></span> Open
+            </a>
+                <a class="minibutton" href="https://github.com/shidel-dev/page-crawler/edit/master/download.js" data-method="post" rel="nofollow" data-hotkey="e">Edit</a>
+          <a href="https://github.com/shidel-dev/page-crawler/raw/master/download.js" class="button minibutton " id="raw-url">Raw</a>
+            <a href="https://github.com/shidel-dev/page-crawler/blame/master/download.js" class="button minibutton ">Blame</a>
+          <a href="https://github.com/shidel-dev/page-crawler/commits/master/download.js" class="button minibutton " rel="nofollow">History</a>
+        </div><!-- /.button-group -->
+          <a class="minibutton danger empty-icon tooltipped downwards" href="https://github.com/shidel-dev/page-crawler/delete/master/download.js" data-method="post" data-test-id="delete-blob-file" rel="nofollow" original-title="">
+          Delete
+        </a>
+      </div><!-- /.actions -->
+
+    </div>
+        <div class="blob-wrapper data type-javascript js-blob-data">
+        <table class="file-code file-diff">
+          <tbody><tr class="file-code-line">
+            <td class="blob-line-nums">
+              <span id="L1" rel="#L1">1</span>
+<span id="L2" rel="#L2">2</span>
+<span id="L3" rel="#L3">3</span>
+<span id="L4" rel="#L4">4</span>
+<span id="L5" rel="#L5">5</span>
+<span id="L6" rel="#L6">6</span>
+<span id="L7" rel="#L7">7</span>
+<span id="L8" rel="#L8">8</span>
+<span id="L9" rel="#L9">9</span>
+<span id="L10" rel="#L10">10</span>
+<span id="L11" rel="#L11">11</span>
+<span id="L12" rel="#L12">12</span>
+<span id="L13" rel="#L13">13</span>
+<span id="L14" rel="#L14">14</span>
+<span id="L15" rel="#L15">15</span>
+<span id="L16" rel="#L16">16</span>
+<span id="L17" rel="#L17">17</span>
+<span id="L18" rel="#L18">18</span>
+<span id="L19" rel="#L19">19</span>
+<span id="L20" rel="#L20">20</span>
+<span id="L21" rel="#L21">21</span>
+<span id="L22" rel="#L22">22</span>
+<span id="L23" rel="#L23">23</span>
+<span id="L24" rel="#L24">24</span>
+<span id="L25" rel="#L25">25</span>
+<span id="L26" rel="#L26">26</span>
+<span id="L27" rel="#L27">27</span>
+<span id="L28" rel="#L28">28</span>
+<span id="L29" rel="#L29">29</span>
+<span id="L30" rel="#L30">30</span>
+<span id="L31" rel="#L31">31</span>
+<span id="L32" rel="#L32">32</span>
+<span id="L33" rel="#L33">33</span>
+<span id="L34" rel="#L34">34</span>
+<span id="L35" rel="#L35">35</span>
+<span id="L36" rel="#L36">36</span>
+<span id="L37" rel="#L37">37</span>
+<span id="L38" rel="#L38">38</span>
+<span id="L39" rel="#L39">39</span>
+<span id="L40" rel="#L40">40</span>
+<span id="L41" rel="#L41">41</span>
+<span id="L42" rel="#L42">42</span>
+<span id="L43" rel="#L43">43</span>
+<span id="L44" rel="#L44">44</span>
+<span id="L45" rel="#L45">45</span>
+<span id="L46" rel="#L46">46</span>
+<span id="L47" rel="#L47">47</span>
+<span id="L48" rel="#L48">48</span>
+<span id="L49" rel="#L49">49</span>
+<span id="L50" rel="#L50">50</span>
+<span id="L51" rel="#L51">51</span>
+<span id="L52" rel="#L52">52</span>
+<span id="L53" rel="#L53">53</span>
+<span id="L54" rel="#L54">54</span>
+<span id="L55" rel="#L55">55</span>
+<span id="L56" rel="#L56">56</span>
+<span id="L57" rel="#L57">57</span>
+<span id="L58" rel="#L58">58</span>
+<span id="L59" rel="#L59">59</span>
+<span id="L60" rel="#L60">60</span>
+<span id="L61" rel="#L61">61</span>
+<span id="L62" rel="#L62">62</span>
+<span id="L63" rel="#L63">63</span>
+<span id="L64" rel="#L64">64</span>
+<span id="L65" rel="#L65">65</span>
+<span id="L66" rel="#L66">66</span>
+<span id="L67" rel="#L67">67</span>
+<span id="L68" rel="#L68">68</span>
+<span id="L69" rel="#L69">69</span>
+<span id="L70" rel="#L70">70</span>
+<span id="L71" rel="#L71">71</span>
+<span id="L72" rel="#L72">72</span>
+
+            </td>
+            <td class="blob-line-code">
+                    <div class="code-body highlight"><pre><div class="line" id="LC1"><span class="nx">get_source</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span></div><div class="line" id="LC2"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ok:'</span><span class="o">+</span><span class="nx">data</span><span class="p">)</span></div><div class="line" id="LC3"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'http'</span><span class="p">);</span></div><div class="line" id="LC4"><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span></div><div class="line" id="LC5">&nbsp;&nbsp;<span class="nx">host</span><span class="o">:</span> <span class="s1">'www.google.com'</span><span class="p">,</span></div><div class="line" id="LC6">&nbsp;&nbsp;<span class="nx">path</span><span class="o">:</span> <span class="s1">'/index.html'</span></div><div class="line" id="LC7"><span class="p">};</span></div><div class="line" id="LC8"><br></div><div class="line" id="LC9"><span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span></div><div class="line" id="LC10">&nbsp;&nbsp;<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'STATUS: '</span> <span class="o">+</span> <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span></div><div class="line" id="LC11">&nbsp;&nbsp;<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'HEADERS: '</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">headers</span><span class="p">));</span></div><div class="line" id="LC12"><br></div><div class="line" id="LC13">&nbsp;&nbsp;<span class="c1">// Buffer the body entirely for processing as a whole.</span></div><div class="line" id="LC14">&nbsp;&nbsp;<span class="kd">var</span> <span class="nx">bodyChunks</span> <span class="o">=</span> <span class="p">[];</span></div><div class="line" id="LC15">&nbsp;&nbsp;<span class="nx">res</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span></div><div class="line" id="LC16">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1">// You can process streamed parts here...</span></div><div class="line" id="LC17">&nbsp;&nbsp;&nbsp;&nbsp;<span class="nx">bodyChunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span></div><div class="line" id="LC18">&nbsp;&nbsp;<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span></div><div class="line" id="LC19">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">bodyChunks</span><span class="p">);</span></div><div class="line" id="LC20">&nbsp;&nbsp;&nbsp;&nbsp;<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'BODY: '</span> <span class="o">+</span> <span class="nx">body</span><span class="p">);</span></div><div class="line" id="LC21">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1">// ...and/or process the entire body here.</span></div><div class="line" id="LC22">&nbsp;&nbsp;<span class="p">})</span></div><div class="line" id="LC23"><span class="p">});</span></div><div class="line" id="LC24"><br></div><div class="line" id="LC25"><span class="nx">req</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span></div><div class="line" id="LC26">&nbsp;&nbsp;<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ERROR: '</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span></div><div class="line" id="LC27"><span class="p">});</span></div><div class="line" id="LC28"><br></div><div class="line" id="LC29"><span class="p">}</span></div><div class="line" id="LC30"><br></div><div class="line" id="LC31"><span class="nx">exports</span><span class="p">.</span><span class="nx">get_source</span> <span class="o">=</span> <span class="nx">get_source</span><span class="p">;</span></div><div class="line" id="LC32"><br></div><div class="line" id="LC33"><br></div><div class="line" id="LC34"><br></div><div class="line" id="LC35"><br></div><div class="line" id="LC36"><br></div><div class="line" id="LC37"><br></div><div class="line" id="LC38"><br></div><div class="line" id="LC39"><br></div><div class="line" id="LC40"><span class="c1">// var express = require('express');</span></div><div class="line" id="LC41"><span class="c1">// var app = express();</span></div><div class="line" id="LC42"><span class="c1">// var request = require('request');</span></div><div class="line" id="LC43"><span class="c1">// var http = require("http");</span></div><div class="line" id="LC44"><span class="c1">// var fs = require('fs');</span></div><div class="line" id="LC45"><span class="c1">// var url = require('url');</span></div><div class="line" id="LC46"><br></div><div class="line" id="LC47"><span class="c1">// app.get('*', function(req, res){</span></div><div class="line" id="LC48"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(req.params[0].substring(1));</span></div><div class="line" id="LC49"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getSource(req.params[0].substring(1), res);</span></div><div class="line" id="LC50"><span class="c1">// });</span></div><div class="line" id="LC51"><br></div><div class="line" id="LC52"><span class="c1">// app.listen(3000);</span></div><div class="line" id="LC53"><span class="c1">// console.log('Listening on port 3000');</span></div><div class="line" id="LC54"><br></div><div class="line" id="LC55"><br></div><div class="line" id="LC56"><br></div><div class="line" id="LC57"><span class="c1">// function getSource(uri, res){</span></div><div class="line" id="LC58"><br></div><div class="line" id="LC59"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var d = new Date();</span></div><div class="line" id="LC60"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var n = d.getTime()</span></div><div class="line" id="LC61"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = n + '.html'</span></div><div class="line" id="LC62"><br></div><div class="line" id="LC63"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;request(uri, function (error, response, body) {</span></div><div class="line" id="LC64"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!error &amp;&amp; response.statusCode == 200) {</span></div><div class="line" id="LC65"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//res.send(body)</span></div><div class="line" id="LC66"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fs.writeFile("temp/"+n, body, function (err) {</span></div><div class="line" id="LC67"><span class="c1">//   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (err) throw err;</span></div><div class="line" id="LC68"><span class="c1">//   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.download('./temp/'+n, "page.html");</span></div><div class="line" id="LC69"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span></div><div class="line" id="LC70"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div class="line" id="LC71"><span class="c1">// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span></div><div class="line" id="LC72"><span class="c1">// }</span></div></pre></div>
+            </td>
+          </tr>
+        </tbody></table>
+  </div>
+
+  </div>
+</div>
+
+<a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#jump-to-line" rel="facebox[.linejump]" data-hotkey="l" class="js-jump-to-line" style="display:none">Jump to Line</a>
+<div id="jump-to-line" style="display:none">
+  <form accept-charset="UTF-8" class="js-jump-to-line-form">
+    <input class="linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line…" autofocus="">
+    <button type="submit" class="button">Go</button>
+  </form>
+</div>
+
+</div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com/">API</a></li>
+      <li><a href="http://training.github.com/">Training</a></li>
+      <li><a href="http://shop.github.com/">Shop</a></li>
+      <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="https://github.com/about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2014 <span title="0.05673s from github-fe117-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-fullscreen-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+          <div class="suggester-container">
+              <div class="suggester fullscreen-suggester js-navigation-container" id="fullscreen_suggester" data-url="/shidel-dev/page-crawler/suggestions/commit">
+              </div>
+          </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" original-title="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" class="theme-switcher js-theme-switcher tooltipped leftwards" original-title="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="https://github.com/shidel-dev/page-crawler/blob/master/download.js#" class="octicon octicon-remove-close close ajax-error-dismiss"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+  
+
+
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" data-clipboard-ready="true" style="position: absolute; left: -9999px; top: -9999px; width: 15px; height: 15px; z-index: 9999;" original-title="">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="https://github.global.ssl.fastly.net/flash/ZeroClipboard.v1.2.1.swf?nocache=1389378944768">         <param name="allowScriptAccess" value="always">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=github.com">         <embed src="https://github.global.ssl.fastly.net/flash/ZeroClipboard.v1.2.1.swf?nocache=1389378944768" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=github.com" scale="exactfit">                </object></div>    <div class="facebox" id="facebox" style="display:none;">       <div class="facebox-popup">         <div class="facebox-content">         </div>         <button type="button" class="facebox-close">           <span class="octicon octicon-remove-close"></span>         </button>       </div>     </div></body></html>

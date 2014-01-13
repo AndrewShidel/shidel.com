@@ -74,21 +74,21 @@
         <h1>Sieve of Eratosthenes in Ruby</h1>
 
 
-<p>Sieve of Eratosthenes is a algorithm for finding all prime numbers below a given number.   It is one of the most efficient ways to find prime numbers up until you are calculating up into millions.  The basic concept is that a you can eliminate all of the non prime numbers by testing their divisibility by prime numbers starting with 2 and working up.</p>
+<p>Sieve of Eratosthenes is a algorithm for finding all prime numbers below a given number.   It is one of the most efficient ways to find prime numbers up until you are calculating up into millions. On my personal computer I could compute up to 100,000 in less then a second. The basic concept is that a you can eliminate all of the non prime numbers by testing their divisibility by prime numbers starting with 2 and working up.</p>
 <br/>
 
 <p>This is a visual representation of how this algorithm works: </p>
 <img src='http://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif'/>
 
-<p>My approach to this problem is to first take the set of the first four prime numbers ( [2,3,5,7] ), and use each to reduce the complete set of numbers.  Using the modulus operator you can test if each number is divisible by one of these primes, and if it is you can  remove from the set. </p>  
+<p>My approach to this problem is to first take the set of the first 100 prime numbers , and use each to reduce the complete set of numbers.  Using the modulus operator you can test if each number is divisible by one of these primes, and if it is you can  remove from the set. </p>  
 
 
 <p>This is the code that I have come up with:</p>
 
 <pre class="brush: ruby">
-def eratosthenes_sieve(n)
+def eratosthenes_sieve2(n)
   numbers = (2..n).to_a
-  [2,3,5,7].each do |t|
+  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97].each do |t|
     numbers.each_with_index do |value,index|
       if value != t 
         if value % t == 0 

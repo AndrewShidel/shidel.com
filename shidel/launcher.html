@@ -47,8 +47,7 @@
     </p>
     <br/>
     <p>First we need to set up the JavaScript to show and hide the launcher. The launcher starts with visibility:hidden;. Clicking on the icon triggers it to become visible. Clicking on the icon, or elsewhere on the page while it is visible causes it to become hidden again. The childOf function checks if the clicked element is a child of the popup element in order to correctly handle what action needs to be taken.</p>
-    <script type="syntaxhighlighter" class="brush: js">
-    < ![CDATA[
+    <pre class = 'brush: js'>
 
             var popup = document.getElementById('popup') var menu = document.getElementById('menu') menu.addEventListener("click", trigger) //adding event for clicks on launcher icon
 
@@ -94,18 +93,14 @@
         }
 
 
-    ]] >
-    </script>
+    </pre>
     <br/>
     <p>The most difficult part of creating the launcher are the scroll events and the effect they have on the launcher window. Initially the launcher will have over-scroll: hidden;. When it detects a downward scroll event this is changed to overscroll: scroll;. The following peaces of code create the listeners and the functions that handle them.</p>
 
 
 
-    <script type="text/javascript">
-    SyntaxHighlighter.all()
-    </script>
-    <script type="syntaxhighlighter" class="brush: js">
-    < ![CDATA[
+  
+    <pre class = 'brush: js'>
         //changes event type depending on browser
         var wheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel"
 
@@ -154,12 +149,11 @@
 
             }
         }
-    ]] >
-    </script>
+    </pre>
     <br/>
     <p>lastly we need to scroll to bottom of page when the "more" div is clicked on. I decided to use a non jQuery solution, but you can use jQuery's animations instead.</p>
-    <script type="syntaxhighlighter" class="brush: js">
-    < ![CDATA[more.addEventListener('click', function() {
+    <pre class = 'brush: js'>
+      more.addEventListener('click', function() {
             popup.style.overflow = "scroll";
             more.style.height = "2px";
             more.style.fontSize = "0pt"
@@ -199,9 +193,11 @@
         };
 
     ]] >
-    </script>
+    </pre>
     <p>Have a look at the <a target="_top" href="menu.html">example</a> for the HTML and CSS you will need along with the full JavaScript.</p>
-
+  <script type="text/javascript">
+    SyntaxHighlighter.all()
+    </script>
 
 </body>
 

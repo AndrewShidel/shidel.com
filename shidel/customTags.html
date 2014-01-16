@@ -1,43 +1,89 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+<html lang="en">
+
+
+
 <head>
-	<meta charset="utf-8">
-	<title>
-		How to create custom tags in HTML
-	</title>
-	
-	<meta name="description" content="Introduction to creating custom HTML tags using HTML and JavaScript, by Andrew Shidel and Joe Shidel">
-	
-	<script>
-		if ( window.self === window.top ) { window.location.href = "http://www.shidel.com/#customTags" }
-	</script>
-	
-	
-	<style>
-	
-	body{background-color: #fff;}
 
-	#main {
-			width: 80%;
-			margin-left: 10%;
-		}
-		
-		@media only screen and (max-width: 600px) {
-		
-			#main {
-				width:100%;
-				margin-left: 0%;
-			}
-		
-		}
-	
-	</style>
-	
-	
+
+    <script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushJScript.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Google launcher tutorial</title>
+    <style type="text/css">
+    body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
+    }
+    div {
+        margin:0;
+    }
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    #example {
+        width: 700px;
+        height: 300px;
+    }
+    h1 {
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+    .box {
+        width: 50%;
+        background-color: #FFF;
+        overflow-wrap: break-word;
+    }
+    @media screen and (max-width:680px) {
+        .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .box {
+            width: 95%;
+            margin-left: 2.5%;
+        }
+    }
+    </style>
+
+
 </head>
-<body>
 
-<h1>Custom HTML tags</h1>
+
+
+<body>
+ <div class="container clearfix">    
+ <h1>Custom HTML tags</h1>
 
 <br>
 
@@ -45,71 +91,49 @@
 <p>First thing that you should know before beginning is that when you use a non existant tag in HTML, CSS, or the javacript "getElementsByTageName()", the browser will not throw an error, but instead assume that you are dfining your own tag. This empty tag will be defined as something very similar to that of a div; an empty box with very few properties associated with it.  This allows you to simply create a tag with the normal HTML syntax, and then begin maunipulating it with CSS and JavaScript.</p>
 
 <p>To demonstrate this proccess, we will be creating an easy way to add tabs to a page using the custom 't' tag.</p>
+</br>
+    <pre class='brush: js'>
+    <html>
 
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;html&gt;</span>
+     <head>
 
-     <span style="color: #007700">&lt;head&gt;</span>
-
-          <span style="color: #007700">&lt;style&gt;</span>
+          <style>
 
 
 
-          <span style="color: #007700">&lt;/style&gt;</span>
+          </style>
 
-          <span style="color: #007700">&lt;script&gt;</span>
+          <script>
 
-               <span style="color: #007020">window</span>.onload <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(){
-                    <span style="color: #008800; font-weight: bold">var</span> tags <span style="color: #333333">=</span> <span style="color: #007020">document</span>.getElementsByTagName(<span style="background-color: #fff0f0">&quot;t&quot;</span>);
-                    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #008800; font-weight: bold">var</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> tags.length; i<span style="color: #333333">++</span>){
-                         tags[i].innerHTML <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&amp;nbsp;&amp;nbsp&amp;nbsp&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;</span> <span style="color: #333333">+</span> tags[i].innerHTML;
+               window.onload = function(){
+                    var tags = document.getElementsByTagName("t");
+                    for (var i = 0; i < tags.length; i++){
+                         tags[i].innerHTML = "&nbsp;&nbsp&nbsp&nbsp;&nbsp;&nbsp;" + tags[i].innerHTML;
                     }
                }
 
-          <span style="color: #007700">&lt;/script&gt;</span>
+          </script>
 
 
-     <span style="color: #007700">&lt;/head&gt;</span>
+     </head>
 
-     <span style="color: #007700">&lt;body&gt;</span>
-          <span style="color: #007700">&lt;t&gt;</span>This line is now tabbed by five spaces.
-     <span style="color: #007700">&lt;/body&gt;</span>
+     <body>
+          <t>This line is now tabbed by five spaces.
+     </body>
 
-<span style="color: #007700">&lt;/html&gt;</span>
-</pre></td></tr></table></div>
-
-
-
-
-<p>In this code, we simply manipulate the DOM as if the 't' tag was a true tag, and then write the HTML exactly as we would expect.  In addition, we could define the tag further through CSS attributes.</p>
+</html>
+    </pre>
+</br>
+<p>
+    In this code, we simply manipulate the DOM as if the 't' tag was a true tag, and then write the HTML exactly as we would expect. In addition, we could define the tag further through CSS attributes.
+</p>    
+</div>
+    <script type="text/javascript">
+    SyntaxHighlighter.all()
+    </script>
 
 </body>
-</html>
 
+
+
+</html>

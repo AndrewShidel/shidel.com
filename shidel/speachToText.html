@@ -1,348 +1,270 @@
-
 <!DOCTYPE HTML>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<title>
-		Speach to text using Javascript.
-	</title>
-	<style>
-	body{background-color: #fff}
-	p{font-family: arial;
-font-size: 16pt;}
-
-h1{font-size: 26pt;
-text-align: center;}
-
-#example{
-	width:700px;
-	height: 300px;
-}
-	
-
-	</style>
-	
-	
-		<script>
-	
-		if ( window.self === window.top ) { window.location.href = "http://www.shidel.com/#speach-to-text" }
-	
-	</script>
-	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viewFrames documentation</title>
+    <script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushJScript.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <base target="_parent">
+    <script>
+    if (window.self === window.top) {
+        window.location.href = "../sieve.html"
+    }
+    </script>
+    <style type="text/css">
+    body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
+    }
+    div {
+        margin:0;
+    }
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    h1 {
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+    .box {
+        width: 50%;
+        background-color: #FFF;
+        overflow-wrap: break-word;
+    }
+    @media screen and (max-width:680px) {
+        .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .box {
+            width: 95%;
+            margin-left: 2.5%;
+        }
+    }
+    </style>
 </head>
+
 <body>
-	
-	<h1>Speech recognition using web technologies.</h1>
-	<br><br>
-	
-	<p>Speech recognition has existed for a very long time, and has been a historic challenge in computer science. The subject has always been filled with error, and inaccessible to the common developer. Now, with the internet full of Seech recognition engines for nearly every language and platform, it has become a prevalent way of interacting with computers.</p>
-	
-	<p>In this tutorial, we will introduce one of the simplest, but also a very powerful way to do speech recognition using google chrome's web kit speech recognition api. This api allows for fine control and accurate results, but is currently available on Chrome version 25 and above.</p>
-	
-	<p>The example below demonstrates the api generating results almost immediately, as the user speaks.</p>
-	
-	
-	<p>The end result will resemble this: (The full version with souce code can be found <a href="" onclick="window.top.location.href = 'http://shidel.com/voice.html'">here<a>.) </p>
-	
-	<iframe src="http://shidel.com/voiceIframe.html" id="example" frameborder="0"></iframe>
-	
-	
-	<br><br>
-	<p>Lets jump in:</p>
-	
-	<p>First, we will set up simple interface to begin interpreting, and to display the results. If you are interested only in the api skip this section.</p>
-	
-	
-	
-	<p>Here, we will set up a Text box to display the results, and a button to begin and to stop recording:</p>
-	<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8
-9</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;div</span> <span style="color: #007700">&gt;</span>
-<span style="color: #007700">&lt;textarea</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&#39;textfield&#39;</span><span style="color: #007700">&gt;&lt;/textarea&gt;</span>
+    <div class="container clearfix">
+        <h1>Speech Recognition using Web Technologies.</h1>
+        <br>
+        <br>
 
-<span style="color: #007700">&lt;/div&gt;</span>
-<span style="color: #007700">&lt;span</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&#39;mic&#39;</span><span style="color: #007700">&gt;</span>
+        <p>Speech recognition has existed for a very long time, and has been a historic challenge in computer science. The subject has always been filled with error, and inaccessible to the common developer. Now, with the internet full of speech recognition engines for nearly every language and platform, it has become a prevalent way of interacting with computers.</p>
 
-<span style="color: #007700">&lt;img</span> <span style="color: #0000CC">src=</span><span style="background-color: #fff0f0">&quot;mic.png&quot;</span> <span style="color: #007700">/&gt;</span>
+        <p>In this tutorial, we will introduce one of the simplest, but also a very powerful way to do speech recognition using Google chrome's web kit speech recognition api. This api allows for fine control and accurate results, but is currently available on Chrome version 25 and above.</p>
 
-<span style="color: #007700">&lt;/span&gt;</span>
-</pre></td></tr></table></div>
+        <p>The example below demonstrates the api generating results almost immediately, as the user speaks.</p>
 
+        <p>The end result will resemble this: (The full version with souce code can be found <a href='http://shidel.com/voice.html'>here<a>.) </p>
+    
+    <iframe src="http://shidel.com/voiceIframe.html" id="example" frameborder="0"></iframe>
+   <p>Lets jump in:</p>
+    
+    <p>First, we will set up simple interface to begin interpreting, and to display the results. If you are interested only in the api skip this section.</p>
+    
+    
+    
+    <p>Here, we will set up a Text box to display the results, and a button to begin and to stop recording:</p>
+<pre class="brush: js">
+&lt;div >
+
+    &lt;textarea id='textfield'>&lt;/textarea>
+
+&lt;/div>
+&lt;span id='mic'>
+
+    &lt;img src="mic.png" />
+
+&lt;/span>
+
+</pre>
 <p>And the the CSS:</p>
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007700">span</span> {
-     <span style="color: #008800; font-weight: bold">position</span><span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">absolute</span>;
-     <span style="color: #008800; font-weight: bold">border</span><span style="color: #333333">-</span>radius<span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">50</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">margin-left</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">71</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">margin-top</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">8</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">6</span>vh;
-     <span style="color: #008800; font-weight: bold">height</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">6</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">background-color</span><span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">transparent</span>;
+<pre class="brush: js">
+span {
+     position:absolute;
+     border-radius:50%;
+     margin-left:71%;
+     margin-top:8%;
+     width:6vh;
+     height:6%;
+     background-color:transparent;
 }
 
-<span style="color: #0066BB; font-weight: bold">#textfield</span> {
-     <span style="color: #008800; font-weight: bold">height</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">95</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">95</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">position</span><span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">absolute</span>;
-     <span style="color: #008800; font-weight: bold">left</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">2</span><span style="color: #333333">.</span><span style="color: #6600EE; font-weight: bold">5</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">top</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">2</span><span style="color: #333333">.</span><span style="color: #6600EE; font-weight: bold">5</span><span style="color: #333333">%</span>;
+#textfield {
+     height:95%;
+     width:95%;
+     position:absolute;
+     left:2.5%;
+     top:2.5%;
 }
 
-<span style="color: #007700">div</span> {
-     <span style="color: #008800; font-weight: bold">border</span><span style="color: #333333">-</span>radius<span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">15px</span>;
-     <span style="color: #008800; font-weight: bold">position</span><span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">absolute</span>;
-     <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">45</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">height</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">40</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">margin-top</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">10</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">margin-left</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">25</span><span style="color: #333333">.</span><span style="color: #6600EE; font-weight: bold">5</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">background-color</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">#FFF</span>;
-     <span style="color: #008800; font-weight: bold">border-color</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">#000</span>;
-     <span style="color: #008800; font-weight: bold">border-style</span><span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">solid</span>;
-     <span style="color: #008800; font-weight: bold">border-width</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">2px</span>;
+div {
+     border-radius:15px;
+     position:absolute;
+     width:45%;
+     height:40%;
+     margin-top:10%;
+     margin-left:25.5%;
+     background-color:#FFF;
+     border-color:#000;
+     border-style:solid;
+     border-width:2px;
 }
 
-<span style="color: #007700">img</span> {
-     <span style="color: #008800; font-weight: bold">width</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">80</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">margin-left</span><span style="color: #333333">:</span><span style="color: #6600EE; font-weight: bold">10</span><span style="color: #333333">%</span>;
-     <span style="color: #008800; font-weight: bold">margin-top</span><span style="color: #333333">:.</span><span style="color: #6600EE; font-weight: bold">6</span>vh;
-     <span style="color: #008800; font-weight: bold">position</span><span style="color: #333333">:</span><span style="color: #008800; font-weight: bold">absolute</span>;
-}	
-</pre></td></tr></table></div>
+img {
+     width:80%;
+     margin-left:10%;
+     margin-top:.6vh;
+     position:absolute;
+}  
+</pre>
+<p>The above will produce a simple layout to begin working with. Now comes the exciting part.
 
+We first need to set up some simple variables. They are described in the comments below.
+</p>
+<pre class="brush: js">
+//Is the recognition currently active?
+var toggle=true;
 
-<br><br>
+//Handles the speach recognition.
+var voice= new webkitSpeechRecognition();
 
-<p>The above will produce a simple layout to begin working with.  Now comes the exciting part.</p>
+//User should be able to start and stop speaking seemlessly, and see intermediate results as they speek.
+voice.continuous=true;
+voice.interimResults=true;
+var interimResult = '';
 
+//holds the current sentence.
+var final = "";
 
+//Holds the final version of the speach recognition.
+var allText = new Array();
 
-
-
-
-
-
-
-
-<p>We first need to set up some simple variables.  They are described in the comments below.</p>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">//Is the recognition currently active?</span>
-<span style="color: #008800; font-weight: bold">var</span> toggle<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">true</span>;
-
-<span style="color: #888888">//Handles the speach recognition.</span>
-<span style="color: #008800; font-weight: bold">var</span> voice<span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> webkitSpeechRecognition();
-
-<span style="color: #888888">//User should be able to start and stop speaking seemlessly, and see intermediate results as they speek.</span>
-voice.continuous<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">true</span>;
-voice.interimResults<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">true</span>;
-<span style="color: #008800; font-weight: bold">var</span> interimResult <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;&#39;</span>;
-
-<span style="color: #888888">//holds the current sentence.</span>
-<span style="color: #008800; font-weight: bold">var</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span>;
-
-<span style="color: #888888">//Holds the final version of the speach recognition.</span>
-<span style="color: #008800; font-weight: bold">var</span> allText <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #007020">Array</span>();
-
-<span style="color: #008800; font-weight: bold">var</span> textArea <span style="color: #333333">=</span> $(<span style="background-color: #fff0f0">&#39;#textfield&#39;</span>);
-<span style="color: #008800; font-weight: bold">var</span> textAreaID <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;textfield&#39;</span>;
-</pre></td></tr></table></div>
-
-<br>
-
-
+var textArea = $('#textfield');
+var textAreaID = 'textfield';
+</pre>
+</br>
 <p>Before doing any recognition, we will also need to set up some code to simply stop and start the service. This is done in the click listener for the microphone button.</p>
+<pre class="brush: js">
+ document.getElementById('mic').addEventListener('click', function(event){
 
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&#39;mic&#39;</span>).addEventListener(<span style="background-color: #fff0f0">&#39;click&#39;</span>, <span style="color: #008800; font-weight: bold">function</span>(event){
-
-	<span style="color: #008800; font-weight: bold">if</span> (toggle){
-	
-		voice.start();
-		<span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&#39;mic&#39;</span>).style.backgroundColor<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;red&#39;</span>;
-		toggle<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">false</span>;
-	}	
-	<span style="color: #008800; font-weight: bold">else</span>{
-	
-		voice.stop();
-		<span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&#39;mic&#39;</span>).style.backgroundColor<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;transparent&#39;</span>;
-		
-		toggle<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">true</span>;
-	}
-		
+    if (toggle){
+    
+        voice.start();
+        document.getElementById('mic').style.backgroundColor='red';
+        toggle=false;
+    }   
+    else{
+    
+        voice.stop();
+        document.getElementById('mic').style.backgroundColor='transparent';
+        
+        toggle=true;
+    }
+        
 });
-</pre></td></tr></table></div>
+</pre> 
+</br>
+<p> 
+Next will come the centerpiece of the program. This is the function that is called everytime the recognizer finds a match. This means that it will be called quite often, and will sometimes contain incorrect, or unfinished results. There are several other such methods defined for the recognizer object such as: 
+</p>
+<p>
+voice.onstart = function() {},
+</p>
+<p>
+voice.onerror = function(event) {},
+</p>
+<p>
+and voice.onend = function() {}
+</p>
+<p>
+These functions were not used in this example. The most important item in the "onresult" function is the event object passed in. This object contains functions for retrieving the results from the recognizer. The declaration is as follows:
+</p>
+<pre class = "brush: js">
+//Called when the recognizer gets new information.
+voice.onresult=function(event){}
+</pre>
+</br>
+<p>
+In the example, we will focus primarily on the results properly, used in the first line of the function, which contains a multidimensional array of all the past results, with the inner arrays being a list of the most probable results, with index 0 being the most likely.  
+</p>
+<p>
+In the first line, we use the results array to get the most recent and most likely result and append it to an array containing all of the results so far. We also call the transcript properly on this result in order to get a human readable version.
+</p>
+<pre class = "brush: js">  
+allText[allText.length] = event.results[event.results.length-1][0].transcript;
+</pre>
+</br>
+<p>
+Next, we will determine if the user has finished speaking be using isFinal method. Once we have determined that the user has finished speaking, we empty the text area and add the most recent interpretation.
+</p>  
+<pre class = "brush: js">
+if ( !(event.results[event.results.length-1].isFinal) ){
 
-<br>
-
-
-<p>Next will come the centerpiece of the program. This is the function that is called everytime the recognizer finds a match. This means that it will be called quite often, and will sometimes contain incorrect, or unfinished results.  There are several other such methods defined for the recognizer object such as 
-	<br><br>voice.onstart = function() {},<br>
-  	voice.onerror = function(event) {},<br> and
-  	voice.onend = function() {}<br><br> 
-  	These functions were not used in this example.  The most important item in the "onresult" function is the event object passed in.  This object contains functions for retrieving the results from the recognizer. The declaration is as follows:  
-  	</p>
-  	
-  	<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">//Called when the recognizer gets new information.</span>
-voice.onresult<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">function</span>(event){
-	
-</pre></td></tr></table></div>
-
-<br>
-  	
- <p>In the example, we will focus primarily on the results properly, used in the first line of the function, which contains a multidimensional array of all the past results, with the inner arrays being a list of the most probable results, with index 0 being the most likely.</p>
- 
- 
- <p>In the first line, we use the results array to get the most recent and most likely result and append it to an array containing all of the results so far. We also call the transcript properly on this result in order to get a human readable version.</p>
- 
- <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1</pre></td><td><pre style="margin: 0; line-height: 125%">allText[allText.length] <span style="color: #333333">=</span> event.results[event.results.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>][<span style="color: #0000DD; font-weight: bold">0</span>].transcript;
-</pre></td></tr></table></div>
-
-
-<p>Next, we will determine if the user has finished speaking be using isFinal method.  Once we have determined that the user has finished speaking, we empty the text area and add the most recent interpretation.</p>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">if</span> ( <span style="color: #333333">!</span>(event.results[event.results.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>].isFinal) ){
-
-	textArea.empty();
-	textArea.append(allText[allText.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>]);
-	<span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+    textArea.empty();
+    textArea.append(allText[allText.length-1]);
+    return 0;
 
 }
-	
-</pre></td></tr></table></div>
-
-<br>
-<p>Next, we will fill the text area with the intermediate result, or what the SR engine currently thinks you are saying. Once finished, these messages will be replaced with the full message (this is what was done in the above if statement).</p>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4</pre></td><td><pre style="margin: 0; line-height: 125%">textArea.empty();
-<span style="color: #008800; font-weight: bold">final</span> <span style="color: #333333">+=</span> allText[allText.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>];
-textArea.append(<span style="color: #008800; font-weight: bold">final</span>);
-allText <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #007020">Array</span>();
-</pre></td></tr></table></div>
-
-
-<p>To put it all together, the full method is: </p>
-
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></td><td><pre style="margin: 0; line-height: 125%">voice.onresult<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">function</span>(event){
-		
-	allText[allText.length] <span style="color: #333333">=</span> event.results[event.results.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>][<span style="color: #0000DD; font-weight: bold">0</span>].transcript;
-		
-	<span style="color: #008800; font-weight: bold">if</span> ( <span style="color: #333333">!</span>(event.results[event.results.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>].isFinal) ){
-	     textArea.empty();
-             textArea.append(allText[allText.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>]);	
-	     <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
-	}
-			
-	textArea.empty();
-	<span style="color: #008800; font-weight: bold">final</span> <span style="color: #333333">+=</span> allText[allText.length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>];
-	textArea.append(<span style="color: #008800; font-weight: bold">final</span>);
-	allText <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #007020">Array</span>();
-	
+</pre>  
+</br>
+<p>
+Next, we will fill the text area with the intermediate result, or what the SR engine currently thinks you are saying. Once finished, these messages will be replaced with the full message (this is what was done in the above if statement).
+</p>
+<pre class="brush: js">
+textArea.empty();
+final += allText[allText.length-1];
+textArea.append(final);
+allText = new Array();
+</pre>  
+</br>  
+<p>To put it all together, the full method is:</p>
+<pre class="brush: js">
+voice.onresult=function(event){
+        
+    allText[allText.length] = event.results[event.results.length-1][0].transcript;
+        
+    if ( !(event.results[event.results.length-1].isFinal) ){
+         textArea.empty();
+             textArea.append(allText[allText.length-1]);    
+         return 0;
+    }
+            
+    textArea.empty();
+    final += allText[allText.length-1];
+    textArea.append(final);
+    allText = new Array();
+    
 };
-</pre></td></tr></table></div>
+</pre> 
+</br>   
+</div>
 
-
-
-
-	
+<script type="text/javascript">SyntaxHighlighter.all()</script>    
 </body>
+
 </html>

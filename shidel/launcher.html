@@ -21,16 +21,56 @@
 
     <title>Google launcher tutorial</title>
     <style type="text/css">
-    body {
-        background-color: #fff;
+   body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
     }
-    p {
-        font-family: arial;
-        font-size: 16pt;
+    div {
+        margin:0;
     }
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    #example{width: 700px;
+             height: 300px;}
     h1 {
-        font-size: 26pt;
-        text-align: center;
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+    .box {
+        width: 50%;
+        background-color: #FFF;
+        overflow-wrap: break-word;
+    }
+    @media screen and (max-width:680px) {
+        .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .box {
+            width: 95%;
+            margin-left: 2.5%;
+        }
     }
     </style>
 
@@ -47,6 +87,7 @@
     </p>
     <br/>
     <p>First we need to set up the JavaScript to show and hide the launcher. The launcher starts with visibility:hidden;. Clicking on the icon triggers it to become visible. Clicking on the icon, or elsewhere on the page while it is visible causes it to become hidden again. The childOf function checks if the clicked element is a child of the popup element in order to correctly handle what action needs to be taken.</p>
+    </br>
     <pre class = 'brush: js'>
 
             var popup = document.getElementById('popup') var menu = document.getElementById('menu') menu.addEventListener("click", trigger) //adding event for clicks on launcher icon

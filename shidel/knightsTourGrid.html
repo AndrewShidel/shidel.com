@@ -1,0 +1,247 @@
+<html>
+
+
+
+
+<head>
+	<title>Knight's Tour in c++</title>
+	<script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushCpp.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <style type="text/css">
+   body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
+    }
+    div {
+        margin:0;
+    }
+    #scrollBox{
+        width: 99%;
+        height: 700px;
+        overflow: scroll;
+    }
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    #example{width: 700px;
+             height: 300px;}
+    h1 {
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+    .box {
+        width: 50%;
+        background-color: #FFF;
+        overflow-wrap: break-word;
+    }
+    @media screen and (max-width:680px) {
+        .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .box {
+            width: 95%;
+            margin-left: 2.5%;
+        }
+    }
+    </style>
+
+</head>
+
+
+
+<body>
+
+<div>
+<h2>Grid.h</h2>
+
+<pre class = 'brush: cpp'>
+//
+//  Created by Andrew Shidel on 4/30/13.
+//  Creates a Grid object.
+//
+
+#ifndef __Grid_h
+#define __Grid_h
+
+#include &#60;string&#62;
+#include &#60;iostream&#62;
+#include &#60;fstream&#62;
+#include &#60;vector&#62;
+
+using namespace std;
+
+class Grid {
+    
+public:
+    //----------------------------------------------------------------------------
+    //----- Constructors ---------------------------------------------------------
+    //----------------------------------------------------------------------------
+    
+    
+    //Main constructor.
+    Grid();
+    
+    Grid(int width, int height);
+    
+    //----------------------------------------------------------------------------
+    //----- Inspectors -----------------------------------------------------------
+    //----------------------------------------------------------------------------
+    
+    int getWidth();
+    
+    int getHeight();
+    
+    //----------------------------------------------------------------------------
+    //----- Mutators -------------------------------------------------------------
+    //----------------------------------------------------------------------------
+    
+    void moveTo(int x, int y);
+    
+    
+    //----------------------------------------------------------------------------
+    //----- Facilitators ---------------------------------------------------------
+    //----------------------------------------------------------------------------
+    
+    string toString();
+    
+    
+    //Allows for use of the [] operator on a grid object.
+    vector<int>& operator[] (const int index);
+    
+    //----------------------------------------------------------------------------
+    //----- Managers -------------------------------------------------------------
+    //----------------------------------------------------------------------------
+    
+
+private:
+    
+    //A multidimentional vector to hold the values of each cell.
+    vector< vector<int> > cells_;
+    
+};
+
+
+#endif
+
+</pre>
+
+
+<h2>Grid.cpp</h2>
+
+<pre class = 'brush: cpp'>
+
+//
+//  Created by Andrew Shidel on 4/30/13.
+//  Implementation of Grid.h
+//
+
+#include &#60;string&#62;
+#include &#60;iostream&#62;
+#include &#60;fstream&#62;
+#include &#60;vector&#62;
+#include &#60;cmath&#62;
+#include &#60;algorithm&#62;
+#include "Grid.h"
+
+using namespace std;
+
+//----------------------------------------------------------------------------
+//----- Constructors ---------------------------------------------------------
+//----------------------------------------------------------------------------
+
+//Default constructor to create a blank puzzle.
+Grid::Grid(){
+    vector <int> v(9,-1);
+    for (int i = 0; i < 9; i++)
+        cells_.push_back( v );
+}
+
+Grid::Grid(int width, int height){
+    vector <int> v(height,-1);
+    for (int i = 0; i < width; i++)
+        cells_.push_back( v );
+}
+
+
+//----------------------------------------------------------------------------
+//----- Inspectors -----------------------------------------------------------
+//----------------------------------------------------------------------------
+
+int Grid::getWidth(){
+    
+    return cells_.size();
+}
+
+int Grid::getHeight(){
+    
+    return cells_[0].size();
+    
+}
+
+
+//----------------------------------------------------------------------------
+//----- Mutators -------------------------------------------------------------
+//----------------------------------------------------------------------------
+
+void Grid::moveTo(int x, int y){
+    
+    
+    
+}
+
+
+//----------------------------------------------------------------------------
+//----- Facilitators ---------------------------------------------------------
+//----------------------------------------------------------------------------
+
+
+//Allows for use of the [] operator on a Grid object.
+vector<int>& Grid::operator[] (const int index){
+    return cells_[index];
+}
+
+//----------------------------------------------------------------------------
+//----- Managers -------------------------------------------------------------
+//----------------------------------------------------------------------------
+
+
+
+</pre>
+
+</div>
+
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+
+</body>
+
+
+
+</html>

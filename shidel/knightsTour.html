@@ -1,0 +1,202 @@
+<html>
+
+
+
+
+<head>
+	<title>Knight's Tour in c++</title>
+	<script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushCpp.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="http://plugins.learningjquery.com/cluetip/jquery.cluetip.css" type="text/css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <style type="text/css">
+   body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
+    }
+    div {
+        margin:0;
+    }
+    html{
+    	padding: 2.5%;
+    }
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    #example{width: 700px;
+             height: 300px;}
+    h1 {
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+    .box {
+        width: 50%;
+        background-color: #FFF;
+        overflow-wrap: break-word;
+    }
+    @media screen and (max-width:680px) {
+        .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    .center{
+    	display: block;
+    	margin-left: auto;
+    	margin-right: auto 
+    }
+    @media screen and (max-width:450px) {
+        .box {
+            width: 95%;
+            margin-left: 2.5%;
+        }
+    }
+    </style>
+
+</head>
+
+
+
+<body>
+
+<br/>
+<h1>Computing a knight's Tour with C++</h1>
+
+<br/>
+
+<p>The knight's tour is a famous puzzle where you move a knight on a chessboard to each square exactly once.  The knight's tour dates back to about the 9th Century, and has been has been a popular topic for mathematicians including Leonhard Euler, who was one of the first to explore the problem in length.</p>
+
+<p>Since then, with the popularization of computers and programming, the puzzle has moved from the hobbyists and Leonhard Euler, to the computer scientists.</p>
+
+<p>During this time, it was proven that for any <i>m</i> × <i>n</i> board with <i>m</i> ≤ <i>n</i>, a closed knight's tour is always possible <i>unless</i> one or more of these three conditions are met:  [<a href="http://en.wikipedia.org/wiki/knight's_tour#Existence">Reference</a>]</p>
+<ol>
+<li><i>m</i> and <i>n</i> are both odd</li>
+<li><i>m</i> = 1, 2, or 4</li>
+<li><i>m</i> = 3 and <i>n</i> = 4, 6, or 8.</li>
+</ol> 
+
+
+<div class="container">
+<figure>
+	<img src="http://upload.wikimedia.org/wikipedia/commons/c/ca/Knights-Tour-Animation.gif"/>
+  	<figcaption>What A Knight's Voyage Is</figcaption>
+</figure>
+</div>
+
+<p>There are many ways in which to compute a knight's voyage.  The method that I will demonstrate here is a recursive brute force search-tree algorithm.  This means the the function will take in the boards parameters (width, height, start position), and search each move from the current position, and "cutting" off any paths that prove invalid. </p>
+
+<p>
+The following program relies on the grid class, which models the structure of the board, and is mainly unimportant to the understanding of the algorithm.  <a id="sticky" href="knightsTourGridProxy.html" rel="knightsTourGridProxy.html">To See the source for the class, hover here.</a>
+</p>
+
+<p>The program itself goes as follows: </p>
+
+<pre class = 'brush: cpp'>
+
+bool voyagingKnight(Grid& visited, int x, int y, int m){
+    
+    //Ensure that the cell is in bounds.
+    if (x>=visited.getWidth() || x<0 || y>=visited.getHeight() || y<0){
+        return false;
+    }
+    
+    //Ensure that the cell is untouched.
+    if( visited[x][y] != -1 && m != 0 ){
+        return false;
+    }
+    
+    //If the iteration has made it this far then it is a valid move.
+    visited[x][y] = m;
+    
+    //If all cells have been touched, output the board and exit the function.
+    if( m == visited.getWidth()*visited.getHeight()-1 ){
+        
+        //Loop through each row.
+        for (int i = 0; i < visited.getHeight(); i++){
+            
+            //Loop through each column
+            for (int j = 0; j < visited.getWidth(); j++){
+                //Output each cell.
+                cout << visited[j][i];
+                
+                //If the value is 1 didget, use 4 spaces, else use only 3.
+                if (visited[j][i] < 10) cout << "    ";
+                else cout << "   ";
+               
+            }
+            //Add a space at the end of every row.
+            cout << endl;
+        }
+        
+        return true;
+        
+    //Else, the move was valid, but the voyage is not yet complete.
+    }else{
+        bool result = false;
+        
+        //Recursively call each move to check for validity.
+        result = (result || voyagingKnight(visited, x+2, y+1, m+1));
+        result = (result || voyagingKnight(visited, x+2, y-1, m+1));
+        result = (result || voyagingKnight(visited, x-2, y+1, m+1));
+        result = (result || voyagingKnight(visited, x-2, y-1, m+1));
+        result = (result || voyagingKnight(visited, x+1, y+2, m+1));
+        result = (result || voyagingKnight(visited, x+1, y-2, m+1));
+        result = (result || voyagingKnight(visited, x-1, y+2, m+1));
+        result = (result || voyagingKnight(visited, x-1, y-2, m+1));
+        
+        //This position resulted in a voyage.
+        if( result == true ){
+            return true;
+        //Else, not of the moves were sucessfull, so we must backtrack.
+        }else{
+            //Unviset the current location.
+            visited[x][y] = -1; 
+            return false;
+        }
+    }
+}
+
+</pre>
+
+<p>Although this code may look intimidating at first, what it is actually doing is quite simple.  Between lines 4 and 15, it is checking if it is a valid move.  Between lines 17 and 39, it it checking if it covered every square, and if if did, then it outputs the solution to the console.  After that, it is finding every move that can be made from your current position, and recursively calling voyagingKnight on each move.  In the end, you should end up with a chess board printed in your console representing the steps required for a knights tour.</p>
+
+<p>We hope that you have found this useful, and have fun finding all 26,534,728,821,064 variations!</p>
+
+<script src="http://plugins.learningjquery.com/cluetip/lib/jquery.hoverIntent.js"></script>
+<script src="http://plugins.learningjquery.com/cluetip/jquery.cluetip.js"></script>
+
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+    $('#sticky').cluetip({width: '1000px', sticky: true, closePosition: 'title', arrows: true});
+</script>
+
+</body>
+
+
+
+</html>

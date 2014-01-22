@@ -28,74 +28,74 @@
 <body>
     <script src='shidel/viewFrames.js'></script>
     <script>
-    view.create({
-        "view": "data",
-        "index": {
-            "name": "welcome",
-            "location": "shidel/welcome.html"
-        },
-        "path": "shidel",
-        "exceptions": {
-            "welcome": "shidel/welcome.html"
-        },
-        "autoSize": true
-    })
-    if (window.addEventListener) {
-        window.addEventListener("load", init);
-    } else if (window.attachEvent) {
-        window.attachEvent("onload", init);
+
+view.create({
+    "view": "data",
+    "index": {
+        "name": "welcome",
+        "location": "shidel/welcome.html"
+    },
+    "path": "shidel",
+    "exceptions": {
+        "welcome": "shidel/welcome.html"
+    },
+    "autoSize": true
+});
+
+
+function init() {
+ var drop = document.getElementById('drop'),
+        vis = false,
+        nav = document.getElementById('nav');
+
+    function check() {
+        if (vis === true) {
+            drop.style.visibility = 'visible';
+        }
+
     }
 
-    function init() {
-        var drop = document.getElementById('drop'),
-            vis = false,
-            nav = document.getElementById('nav');
-        if (window.addEventListener) {
-            console.log('ok lis')
-            window.addEventListener("resize", check);
-        } else if (window.attachEvent) {
-            window.attachEvent("onresize", check);
+    function upDown() {
+
+        if (!event) {
+            event = window.event;
         }
 
+        var caller = event.target || event.srcElement;
 
-        function check() {
-            if (vis == true) {
-                drop.style.visibility = 'visible';
-            }
+        if (caller === nav) {
 
-        }
-        if (nav.addEventListener) {
-            window.addEventListener("click", upDown);
-        } else if (nav.attachEvent) {
-            window.attachEvent("onclick", upDown);
-        }
-
-        function upDown() {
-
-            if (!event) {
-                event = window.event;
-            }
-
-            var caller = event.target || event.srcElement;
-
-            if (caller == nav) {
-
-                if (vis) {
-                    drop.style.visibility = 'hidden';
-                    vis = false;
-                } else {
-                    drop.style.visibility = 'visible';
-                    vis = true;
-                }
-            } else {
+            if (vis) {
                 drop.style.visibility = 'hidden';
                 vis = false;
+            } else {
+                drop.style.visibility = 'visible';
+                vis = true;
             }
+        } else {
+            drop.style.visibility = 'hidden';
+            vis = false;
         }
-
-
-
     }
+
+    if (window.addEventListener) {
+        window.addEventListener("resize", check);
+    } else if (window.attachEvent) {
+        window.attachEvent("onresize", check);
+    }
+
+    if (nav.addEventListener) {
+        window.addEventListener("click", upDown);
+    } else if (nav.attachEvent) {
+        window.attachEvent("onclick", upDown);
+    }
+
+}
+if (window.addEventListener) {
+    window.addEventListener("load", init);
+} else if (window.attachEvent) {
+    window.attachEvent("onload", init);
+}
     </script>
     <div class='header' id='header'>
         <a id='banner' class='handle' data-link='welcome'>

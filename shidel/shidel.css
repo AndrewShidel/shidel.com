@@ -170,6 +170,7 @@ body {
         background: #cd741f
     }
 }
+
 @media only screen and (max-width: 412px) {
     li:nth-of-type(1) {
         margin-left: 0;

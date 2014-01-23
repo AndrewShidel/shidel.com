@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable='yes'">
     <link rel="stylesheet" type="text/css" href="shidel/shidel.css">
     <title>Andrew and Joeseph Shidel's Developmet Showcase</title>
@@ -28,7 +28,10 @@
     <script src='shidel/viewFrames.js'></script>
     <script>
 
-view.create({
+
+
+function init() {
+    view.create({
     "view": "data",
     "index": {
         "name": "welcome",
@@ -41,8 +44,6 @@ view.create({
     "autoSize": true
 });
 
-
-function init() {
  var drop = document.getElementById('drop'),
         vis = false,
         nav = document.getElementById('nav');

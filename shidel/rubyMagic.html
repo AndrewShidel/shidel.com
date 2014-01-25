@@ -94,7 +94,7 @@
 module Magic  
 
   def self.respond_to?(method_sym, include_private = false)
-  	#Logic to decide which method to respond to.
+  	#Logic to decide which methods to respond to.
   end
 
   def self.method_missing(m, *args, &block)  
@@ -103,6 +103,175 @@ module Magic
 
 end  
 </pre>
+
+<p>I choose to use a module as I would never be needing to make an instance of a class for this exercise. The same effect can be added to most any object as far as I can tell, as method_missing is a method of basic_object.</p>
+
+<p>The first Example I am going to show is writing a method to search for a value in a hash and and return an array of the key value pair.  This is not a hard to do with the methods provided to you within ruby. The real difference is in the syntax you can use. For example with this example you can write searches like "Magic.find_where_joe(your_hash)", "Magic.find_where_cat(your_hash), and "Magic.find_where_23". The goal is to find the last term in the method name.  The first step I want you take note in the code below of is that I split the method_name into an array by the underscore.</p> 
+
+<p>I then validate the the first term is find, and then send it off the the appropriate method with nice organized arguments. Also you can see how respond_to? checks if the given method is really something I want to respond to. Play around with this with the tests I have provided.</p>  
+
+<pre class="brush: ruby">
+module Magic  
+
+	def self.respond_to?(method_sym, include_private = false)
+    if method_sym.to_s =~ /^find_where_(.*)$/
+      true
+    else 
+      super  
+    end
+  end
+
+  def self.method_missing(m, *args, &block)  
+    split_call = m.to_s.split('_')
+    if split_call[0] == "find"
+    	finder(split_call[-1],args[0])
+    end	
+  end  
+
+  def self.finder(term, hash)
+  	if term =~ /^[0-9]$/ then term = term.to_i end
+  	hash.find_all{|pair| pair[1] == term}
+ 	end
+end  
+
+#-----tests----
+joe_hash = {student_A:'joe', student_B:'what', student_C:'joe'}
+
+p Magic.find_where_joe(joe_hash)
+
+cat_hash = {1 => Array.new, 2 => "mouse", 3 => "cat"}
+
+p Magic.find_where_cat(cat_hash)
+
+num_hash = {a: 2, b:'dog' , c: 23, d: 54, e: 23}
+
+p Magic.find_where_23(num_hash)
+</pre>
+
+<p>Next lets make a method that counts down from a given number and passes an iterator to a given block.  The syntax for calling this method will be like "Magic.down_from_9{|num| do something here}", or "Magic.down_from_183{|num| do something here}".  This small method will also show off another powerful technique, which is using blocks in your methods.</p>
+<pre class="brush: ruby">
+module Magic 
+
+	def self.respond_to?(method_sym, include_private = false)
+    if method_sym.to_s =~ /^down_from_(.*)/
+      true
+    else
+    	super   
+    end
+  end 
+
+  def self.method_missing(m, *args, &block)  
+    split_call = m.to_s.split('_')
+ 		if split_call[0] == "down"
+    	reverse_ittr(split_call[-1],&block)
+    end  	
+  end  
+
+  def self.reverse_ittr(num, &block)
+ 		num.to_i.downto(0) do |i|
+ 			yield(i)
+ 		end	
+ 	end 
+
+end  
+
+#-----test----
+my_array = []
+Magic.down_from_9 {|num|  my_array << num}
+p my_array
+</pre>
+
+
+<p>Last lets write a super cool method to find if an array contains a member of a given type.  The syntax for using this method will be like "Magic.contains_string?([1,2,7,'hello',95,3])", "Magic.contains_fixnum?(['a',4,'c','z'])", "Magic.contains_symbol?(['hello', 4, Array.new, :cat])", or any other class. </p>
+<pre class="brush: ruby">
+module Magic 
+
+	def self.respond_to?(method_sym, include_private = false)
+    if method_sym.to_s =~ /^contains_(.*)/ 
+      true
+    else
+    	super   
+    end
+  end 
+
+   def self.method_missing(m, *args, &block)  
+    split_call = m.to_s.split('_')
+    if split_call[0] == "contains"
+      type_find(split_call[1].gsub("?", ''),args[0])
+    end  	
+  end  
+  
+
+ 	def self.type_find(klass, array)
+ 		array.any?{|item| item.class == to_class(klass.capitalize)  } 
+ 	end	
+
+ 	def self.to_class(str)
+    Object.const_get(str)
+  end	
+
+end  
+
+#-----tests----
+
+p Magic.contains_string?([1,2,7,'hello',95,3])
+p Magic.contains_fixnum?(['a',4,'c','z'])
+p Magic.contains_symbol(['hello', 4, Array.new, :cat])
+
+</pre>
+
+Lastly here is the full example incorporating all of the above examples:
+
+<pre class="brush: ruby">
+module Magic  
+
+	def self.respond_to?(method_sym, include_private = false)
+    if method_sym.to_s =~ /^find_where_(.*)$/
+      true
+    elsif method_sym.to_s =~ /^down_from_(.*)/
+      true
+    elsif method_sym.to_s =~ /^contains_(.*)/ 
+      true
+    else
+    	super   
+    end
+  end
+
+  def self.method_missing(m, *args, &block)  
+    split_call = m.to_s.split('_')
+    if split_call[0] == "find"
+    	finder(split_call[-1],args[0])
+    elsif split_call[0] == "down"
+    	reverse_ittr(split_call[-1],&block)
+    elsif split_call[0] == "contains"
+      type_find(split_call[1].gsub("?", ''),args[0])
+    end  	
+  end  
+
+  def self.finder(term, hash)
+  	if term =~ /^[0-9]+$/ then term = term.to_i end
+    binding.pry
+  	hash.find_all{|pair| pair[1] == term}
+ 	end
+
+ 	def self.reverse_ittr(num, &block)
+ 		num.to_i.downto(0) do |i|
+ 			yield(i)
+ 		end	
+ 	end 	
+
+ 	def self.type_find(klass, array)
+ 		array.any?{|item| item.class == to_class(klass.capitalize)  } 
+ 	end	
+
+ 	def self.to_class(str)
+    Object.const_get(str)
+  end	
+
+end 
+</pre>
+</br>
+</br>
 </div>
 
 <script type="text/javascript">SyntaxHighlighter.all()</script>    

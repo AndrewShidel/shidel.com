@@ -80,8 +80,8 @@
 
 <body>
 	<div class="container clearfix">
-	<h1>Speech Recognition using Web Technologies.</h1>
-<p>Working with rails, active_record, and ruby can be a very magical experience.  If you do not fight against it, sometimes it seems like it knows what you want before you ask.  This is because the language, and library designers are very clever at meta programming (altering the state of the program at run time).  I want to show a basic and powerful technique, that I have enjoyed playing around with. One caveat is that you must consider if using these techniques are best for your application, as it can be less predictable then other routes.  </p>
+	<h1>Creating Your Own Ruby Magic</h1>
+<p>Working with rails, active_record, and ruby can be a very magical experience.  If you do not fight against it, sometimes it seems like it knows what you want before you ask.  This is because the language, and library designers are very clever at meta programming (altering the state of the program at run time).  I want to show a basic and powerful technique, that I have enjoyed playing around with. One caveat is that you must consider if using these techniques is best for your application, as it can be less predictable then other routes.  </p>
 
 
 <p>What I am going to show is how to using method_missing, and respond_to? in your classes and modules, in order to respond to a variety of custom methods at run time. You can find method_missing under basic_object on ruby docs <a href='http://www.ruby-doc.org/core-2.1.0/BasicObject.html#method-i-method_missing'>here.</a>.</p>
@@ -90,9 +90,10 @@
 
 <p>This is going to be the basic structure of my example. </p>
 <pre class="brush: ruby">
+
 module Magic  
 
-	def self.respond_to?(method_sym, include_private = false)
+  def self.respond_to?(method_sym, include_private = false)
   	#Logic to decide which method to respond to.
   end
 

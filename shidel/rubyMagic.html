@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viewFrames documentation</title>
+    <script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushRuby.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <base target="_parent">
+    <script>
+    if (window.self === window.top) {
+        window.location.href = "../sieve.html"
+    }
+    </script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-36751755-2', 'shidel.com');
+	  ga('send', 'pageview');
+	</script>
+    <style type="text/css">
+    body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
+    }
+    div {
+        margin:0;
+    }
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    #example{width: 700px;
+             height: 300px;}
+    h1 {
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+    .box {
+        width: 50%;
+        background-color: #FFF;
+        overflow-wrap: break-word;
+    }
+    @media screen and (max-width:680px) {
+        .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .box {
+            width: 95%;
+            margin-left: 2.5%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+	<div class="container clearfix">
+	<h1>Speech Recognition using Web Technologies.</h1>
+<p>Working with rails, active_record, and ruby can be a very magical experience.  If you do not fight against it, sometimes it seems like it knows what you want before you ask.  This is because the language, and library designers are very clever at meta programming (altering the state of the program at run time).  I want to show a basic and powerful technique, that I have enjoyed playing around with. One caveat is that you must consider if using these techniques are best for your application, as it can be less predictable then other routes.  </p>
+
+
+<p>What I am going to show is how to using method_missing, and respond_to? in your classes and modules, in order to respond to a variety of custom methods at run time. You can find method_missing under basic_object on ruby docs <a href='http://www.ruby-doc.org/core-2.1.0/BasicObject.html#method-i-method_missing'>here.</a>.</p>
+
+<p>method_missing will act as a fall back in the case that a method requested is not defined. It takes up to three arguments. The first argument will represent the name of the method requested. The second will be an array of the arguments given. The third will be a block if any was given.  I will show the use of all three.</p>
+
+<p>This is going to be the basic structure of my example. </p>
+<pre class="brush: ruby">
+module Magic  
+
+	def self.respond_to?(method_sym, include_private = false)
+  	#Logic to decide which method to respond to.
+  end
+
+  def self.method_missing(m, *args, &block)  
+   	#dynamically handle method calls  
+  end  
+
+end  
+</pre>
+</div>
+
+<script type="text/javascript">SyntaxHighlighter.all()</script>    
+</body>
+
+</html>
+
+

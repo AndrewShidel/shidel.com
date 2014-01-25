@@ -58,11 +58,7 @@
         border-bottom: 4px solid;
         width:100%;
     }
-    .box {
-        width: 50%;
-        background-color: #FFF;
-        overflow-wrap: break-word;
-    }
+
     @media screen and (max-width:680px) {
         .box {
             width: 85%;
@@ -86,7 +82,7 @@
 
 <p>What I am going to show is how to using method_missing, and respond_to? in your classes and modules, in order to respond to a variety of custom methods at run time. You can find method_missing under basic_object on ruby docs <a href='http://www.ruby-doc.org/core-2.1.0/BasicObject.html#method-i-method_missing'>here.</a>.</p>
 
-<p>method_missing will act as a fall back in the case that a method requested is not defined. It takes up to three arguments. The first argument will represent the name of the method requested. The second will be an array of the arguments given. The third will be a block if any was given.  I will show the use of all three.</p>
+<p>method_missing will act as a fall back in the case that a method requested is not defined. It presents you with up to three arguments. The first argument will represent the name of the method requested. The second will be an array of the arguments given. The third will be a block if any was given.  I will show the use of all three.</p>
 
 <p>This is going to be the basic structure of my example. </p>
 <pre class="brush: ruby">

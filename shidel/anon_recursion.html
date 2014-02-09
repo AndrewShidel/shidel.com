@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>viewFrames documentation</title>
+    <script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shBrushRuby.js"></script>
+    <link href="shCore.css" rel="stylesheet" type="text/css" />
+    <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <base target="_parent">
+    <script>
+    if (window.self === window.top) {
+        window.location.href = "../sieve.html"
+    }
+    </script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-36751755-2', 'shidel.com');
+	  ga('send', 'pageview');
+	</script>
+    <style type="text/css">
+    body {
+        width:100%;
+        margin:0;
+        background: #fff;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: #5C5959;
+        ;
+    }
+    div {
+        margin:0;
+    }
+    .container {
+        width: 95%;
+        margin: auto;
+        overflow-x: hidden;
+        margin-left: 2.5%;
+    }
+    .clearfix:after {
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0
+    }
+    #example{width: 700px;
+             height: 300px;}
+    h1 {
+        font-size: 27pt;
+        border-bottom: 4px solid;
+        width:100%;
+    }
+
+    @media screen and (max-width:680px) {
+        .box {
+            width: 85%;
+            margin-left: 7.5%;
+        }
+    }
+    @media screen and (max-width:450px) {
+        .box {
+            width: 95%;
+            margin-left: 2.5%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+	<div class="container clearfix">
+	<h1>Anonymous Recursion</h1>
+<p>Often recursive techniques require helper functions to handle some of the recursive logic for the main method. Most of the time these method are given not so great names like "fooHelper" which make the code less readable, and pollute the name-space.</p>
+<p>Anonymous functions are a great way to have unnamed functions, which can be a great tool in many cases. However since they are unnamed it may not be so intuitive how to use an anonymous function recursively.</p>
+
+<p>Thankfully javaScript makes this quite simple.</p>
+<p>The arguments object has a property called callee which refers to the currently executing function. This can be used to make recursive calls. Of course you could also use named functions as long as they are not in the global scope, and this would not be a problem.</p>
+
+<p>I will show both of these techniques
+
+<pre class="brush: Js">
+Number.prototype.isCoprimeTo = function(num) {
+    return (function(a, b) {
+        if (b == 0) return a;
+        return arguments.callee(b, a % b);
+    })(35, 64) == 1
+}
+
+function isCoprimeTo(little,big){
+  return (function gcd(a,b){
+    if (b == 0) return a;
+    return gcd(b, a % b);
+  })(little,big) == 1
+}
+
+
+var myNum = 35;
+console.log(myNum.isCoprimeTo(64) == true)
+console.log(isCoprimeTo(35,64) == true)
+===tests==
+</pre>
+
+</div>
+
+<script type="text/javascript">SyntaxHighlighter.all()</script>    
+</body>
+
+</html>

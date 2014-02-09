@@ -109,6 +109,7 @@ var view;
 
             var el = document.getElementById(elem);
             el.height = (getWH(el.contentWindow.document.body,'height',true)) + "px";
+            window.scrollTo(0, 0);       
         },
     };
 

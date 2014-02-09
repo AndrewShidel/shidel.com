@@ -77,11 +77,11 @@
 <body>
 	<div class="container clearfix">
 	<h1>Anonymous Recursion</h1>
-<p>Often recursive techniques require helper functions to handle some of the recursive logic for the main method. Most of the time these method are given not so great names like "fooHelper" which make the code less readable names, and pollute the name-space.</p>
+<p>Often recursive techniques require helper functions to handle some of the recursive logic for the main method. Most of the time these method are given not so great names like "fooHelper" which make the code less readable, and pollutes the name-space.</p>
 <p>Anonymous functions are a great way to have unnamed functions, and are a great tool in many cases. However since they are unnamed it may not be so intuitive how to use an anonymous function recursively.</p>
 
 <p>Thankfully javaScript makes this quite simple.</p>
-<p>The arguments object has a property called callee which refers to the currently executing function. This can be used to make recursive calls. Of course you could also use named functions as long as they are not in the global scope, and this would not be a problem.</p>
+<p>The arguments object has a property called "callee" which refers to the currently executing function. This can be used to make recursive calls. Of course you could also use named functions as long as they are not in the global scope, and this would not be a problem.</p>
 
 <p>I will show both of these techniques by creating functions to test if two numbers are co-prime (their greatest common divisor is one).</p>
 

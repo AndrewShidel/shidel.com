@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>viewFrames documentation</title>
     <script type="text/javascript" src="shCore.js"></script>
-    <script type="text/javascript" src="shBrushRuby.js"></script>
+    <script type="text/javascript" src="shBrushJscript.js"></script>
     <link href="shCore.css" rel="stylesheet" type="text/css" />
     <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
     <base target="_parent">
@@ -77,35 +77,55 @@
 <body>
 	<div class="container clearfix">
 	<h1>Anonymous Recursion</h1>
-<p>Often recursive techniques require helper functions to handle some of the recursive logic for the main method. Most of the time these method are given not so great names like "fooHelper" which make the code less readable, and pollute the name-space.</p>
-<p>Anonymous functions are a great way to have unnamed functions, which can be a great tool in many cases. However since they are unnamed it may not be so intuitive how to use an anonymous function recursively.</p>
+<p>Often recursive techniques require helper functions to handle some of the recursive logic for the main method. Most of the time these method are given not so great names like "fooHelper" which make the code less readable names, and pollute the name-space.</p>
+<p>Anonymous functions are a great way to have unnamed functions, and are a great tool in many cases. However since they are unnamed it may not be so intuitive how to use an anonymous function recursively.</p>
 
 <p>Thankfully javaScript makes this quite simple.</p>
 <p>The arguments object has a property called callee which refers to the currently executing function. This can be used to make recursive calls. Of course you could also use named functions as long as they are not in the global scope, and this would not be a problem.</p>
 
-<p>I will show both of these techniques
+<p>I will show both of these techniques by creating functions to test if two numbers are co-prime (their greatest common divisor is one).</p>
 
-<pre class="brush: Js">
+<pre class="brush: js">
+
+
 Number.prototype.isCoprimeTo = function(num) {
+
+  if (this>num) var small = num, big = this;
+  else var small = this, big = num; 
+
     return (function(a, b) {
         if (b == 0) return a;
         return arguments.callee(b, a % b);
-    })(35, 64) == 1
+    })(small, big) == 1
 }
 
-function isCoprimeTo(little,big){
+
+
+//======example two=======
+
+function isCoprimeTo(num1, num2){
+
+  if (num1>num2) var small = num2, big = num1;
+  else var small = num1, big = num2;
+
   return (function gcd(a,b){
     if (b == 0) return a;
     return gcd(b, a % b);
-  })(little,big) == 1
+  })(small,big) == 1
 }
 
-
+//===tests==
 var myNum = 35;
 console.log(myNum.isCoprimeTo(64) == true)
-console.log(isCoprimeTo(35,64) == true)
-===tests==
+console.log(isCoprimeTo(64,35) == true)
+
+
 </pre>
+
+<p>I choose to make a prototype method on the Number object to illustrate a situation where having a named function may not be ideal, as it will not lend in code reuse, because it is contained to the prototype. However it is usually  a better idea to use something like what is seen in example two. </p>
+
+<br>
+<br>
 
 </div>
 

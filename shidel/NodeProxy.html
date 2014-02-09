@@ -4,16 +4,16 @@
 
 <head>
 
-<script type="text/javascript" src="shCore.js"></script>
+    <script type="text/javascript" src="shCore.js"></script>
     <script type="text/javascript" src="shBrushJScript.js"></script>
-     <script type="text/javascript" src="shBrushBash.js"></script>
+    <script type="text/javascript" src="shBrushBash.js"></script>
     <link href="shCore.css" rel="stylesheet" type="text/css" />
     <link href="shThemeDefault.css" rel="stylesheet" type="text/css" />
 
     <title>How to build a proxy server using node.js</title>
 
-<style type="text/css">
-   body {
+    <style type="text/css">
+    body {
         width:100%;
         margin:0;
         background: #fff;
@@ -23,9 +23,6 @@
     }
     div {
         margin:0;
-    }
-    html{
-    	padding: 2.5%;
     }
     .container {
         width: 95%;
@@ -43,12 +40,16 @@
         width:0;
         height:0
     }
-    #example{width: 700px;
-             height: 300px;}
+    #example {
+        width: 700px;
+        height: 300px;
+    }
     h1 {
         font-size: 27pt;
         border-bottom: 4px solid;
         width:100%;
+        margin-top: 0;
+        padding-top: 28px
     }
     h2 {
         font-size: 22pt;
@@ -66,10 +67,10 @@
             margin-left: 7.5%;
         }
     }
-    .center{
-    	display: block;
-    	margin-left: auto;
-    	margin-right: auto 
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto
     }
     @media screen and (max-width:450px) {
         .box {
@@ -87,97 +88,82 @@
 
 <body>
 
-<div id="container">
+    <div id="container">
 
-<h1>How to Build a Proxy Server using Node.JS</h1>
-<br>
+        <h1>How to Build a Proxy Server using Node.JS</h1>
+        <br>
 
-<p>
-Maybe your school or workplace's website blockers are a bit heavy handed, or you are web developer who wants to bypass most browser's security settings and do some fancy cross-domain scripting, or perhaps you are someone who wants to hide their web traffic. Regardless, a web proxy can be useful in accomplishing many otherwise impossible tasks.
-</p>
-
-
-<p>
-Before we begin, it would be useful to know generally what a proxy is, what it does, and how it does it.  In short, a proxy server is a server that acts as an intermediate stage in communications, effectively removing any direct communication between two or more computers.  This means that computer A can send a message to computer B by first sending the message to a proxy server, and having the proxy relay the message to computer B.  A simplistic representation of this effect can be seen in the following diagram:
-</p>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Proxy_concept_en.svg/420px-Proxy_concept_en.svg.png"/>
-
-<br>
-
-<p>In order to create this effect, we will simply design a server-side program that takes a url in the form of a url parameter (<a href="http://www.getsymphony.com/learn/concepts/view/url-parameters/">more about url parameters</a>), downloads the requested file, and forwards the result to the user.</p>
-
-<p>To do this, we will be using Node.JS.  Before proceeding, you should have node installed on your local machine.  The installation can be found <a href="">here</a>.  Although this tutorial is designed for programmers, if you are not a programmer, and simply want to bypass website blockers, you should be able to get by with installing node and following this guide as closely as possible.</p>
+        <p>
+            Maybe your school or workplace's website blockers are a bit heavy handed, or you are web developer who wants to bypass most browser's security settings and do some fancy cross-domain scripting, or perhaps you are someone who wants to hide their web traffic. Regardless, a web proxy can be useful in accomplishing many otherwise impossible tasks.
+        </p>
 
 
-<p>To begin, we will build a simple proxy which simply forwards the initial request through the proxy.  Although this is exactly what you need for many purpases, it will cause problems on most complectated websites.  If you are feeling impatiant, <a href=""><b>feel free to skip to the more advanced section</b></a>, where many of these problems will be addressed.</p>
+        <p>
+            Before we begin, it would be useful to know generally what a proxy is, what it does, and how it does it. In short, a proxy server is a server that acts as an intermediate stage in communications, effectively removing any direct communication between two or more computers. This means that computer A can send a message to computer B by first sending the message to a proxy server, and having the proxy relay the message to computer B. A simplistic representation of this effect can be seen in the following diagram:
+        </p>
+        <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Proxy_concept_en.svg/420px-Proxy_concept_en.svg.png" />
 
-<br>
+        <br>
 
-<h2>Simple Web Proxy</h2>
+        <p>In order to create this effect, we will simply design a server-side program that takes a url in the form of a url parameter (<a href="http://www.getsymphony.com/learn/concepts/view/url-parameters/">more about url parameters</a>), downloads the requested file, and forwards the result to the user.</p>
 
-<p>First we need to create a directory for this project.  For our purposes, I will be calling it 'proxy'.</p>
+        <p>To do this, we will be using Node.JS. Before proceeding, you should have node installed on your local machine. The installation can be found <a href="">here</a>. Although this tutorial is designed for programmers, if you are not a programmer, and simply want to bypass website blockers, you should be able to get by with installing node and following this guide as closely as possible.</p>
 
-<p>Next, we need to require in express and request, which are the two modules we will be using to make this easier.</p>
 
-<pre class = 'brush: bash'>
-cd proxy
-nm install experess
-npm install request
-</pre>
+        <p>To begin, we will build a simple proxy which simply forwards the initial request through the proxy. Although this is exactly what you need for many purpases, it will cause problems on most complectated websites. If you are feeling impatiant, <a href=""><b>feel free to skip to the more advanced section</b></a>, where many of these problems will be addressed.</p>
 
-<p>In the proxy folder we will also create a file called proxy.js, which will house all of the server's logic.  This can be done using any text editor, but the one that I will be using is <a href="http://www.sublimetext.com/2">sublime text 2</a>.</p>
+        <br>
 
-<p>Now that we have finished the prep work, we will begin the codding.<p>
-<br>
+        <h2>Simple Web Proxy</h2>
 
-<p>First, we will require the needed modules:</p>
-<pre class = 'brush: js'>
+        <p>First we need to create a directory for this project. For our purposes, I will be calling it 'proxy'.</p>
 
-var express = require('express'),
-    app = express(),
-    request = require('request'),
-    fs = require('fs'),
-    url = require('url');
-</pre>
+        <p>Next, we need to require in express and request, which are the two modules we will be using to make this easier.</p>
 
-<br>
-<p>Next, we will initialize our server, and have it listen at port 3000.  We will also use app.get('*' to have the server take care of any request.</p>
-<pre class = 'brush: js'>
-app.listen(3000);
-console.log('Listening on port 3000');
+        <pre class='brush: bash'>
+            cd proxy nm install experess npm install request
+        </pre>
 
-app.get('*', function(req, res) {
-	//A function that takes a url and downloads the source. This will be defined in the next step.
-    getSource(req.params[0].substring(10), res);
-});
-</pre>
-<p>At this point, if we start he server by calling <b>'node proxy'</b> from the command line, it should print: 'Listening on port 3000'. </p>
+        <p>In the proxy folder we will also create a file called proxy.js, which will house all of the server's logic. This can be done using any text editor, but the one that I will be using is <a href="http://www.sublimetext.com/2">sublime text 2</a>.</p>
 
-<p>Next, we will define the getSource function.  This function will take a url in the form http://example.com/page.html and will use 'req' to send the result back to the user.</p>
+        <p>Now that we have finished the prep work, we will begin the codding.
+            <p>
+                <br>
 
-<pre class = 'brush: js'>
-function getSource(uri, res) {
-    //Get the source of the url.
-    request(uri, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            res.send(body);                
-        }else{
-            res.send("An error Has occured, the url was most likly incorrect.");
-        }
-    });
-}
-</pre>
+                <p>First, we will require the needed modules:</p>
+                <pre class='brush: js'>
 
-<p>And that's all! If you now open the console and type 'node proxy', then open your browser and go to localhost:3000/http://example.com you should get the web page returned to your window.</p>
+                    var express = require('express'), app = express(), request = require('request'), fs = require('fs'), url = require('url');
+                </pre>
 
-<br>
-<h2>Advanced Proxy</h2>
-<p>Still a work in progress, will be online shortly.</p>
+                <br>
+                <p>Next, we will initialize our server, and have it listen at port 3000. We will also use app.get('*' to have the server take care of any request.</p>
+                <pre class='brush: js'>
+                    app.listen(3000); console.log('Listening on port 3000'); app.get('*', function(req, res) { //A function that takes a url and downloads the source. This will be defined in the next step. getSource(req.params[0].substring(10), res); });
+                </pre>
+                <p>At this point, if we start he server by calling <b>'node proxy'</b> from the command line, it should print: 'Listening on port 3000'.</p>
 
-<script type="text/javascript">
-    SyntaxHighlighter.all()
-    $('#sticky').cluetip({width: '1000px', sticky: true, closePosition: 'title', arrows: true});
-</script>
+                <p>Next, we will define the getSource function. This function will take a url in the form http://example.com/page.html and will use 'req' to send the result back to the user.</p>
+
+                <pre class='brush: js'>
+                    function getSource(uri, res) { //Get the source of the url. request(uri, function(error, response, body) { if (!error && response.statusCode == 200) { res.send(body); }else{ res.send("An error Has occured, the url was most likly incorrect."); } }); }
+                </pre>
+
+                <p>And that's all! If you now open the console and type 'node proxy', then open your browser and go to localhost:3000/http://example.com you should get the web page returned to your window.</p>
+
+                <br>
+                <h2>Advanced Proxy</h2>
+                <p>Still a work in progress, will be online shortly.</p>
+
+                <script type="text/javascript">
+                SyntaxHighlighter.all()
+                 $('#sticky').cluetip({
+                    width: '1000px',
+                    sticky: true,
+                    closePosition: 'title',
+                    arrows: true
+                });
+                </script>
 
 </body>
 

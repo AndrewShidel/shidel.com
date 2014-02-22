@@ -63,12 +63,40 @@
 
 <body>
 <div class="container clearfix">
-<h1></h1>
-<p></p>
+<h1>Site Search with pg_search Gem in Rails</h1>
+<p>Many of the search gems in rails like Solr and elastic search utilize a dedicated server, and need a good amount of configuration. For a small rapidly developed project where all I want to do is search one or two models, I found them to be overkill. In my exploration of the alternatives I found pg_search to be the quickest to deploy and configure.</p>
+<p>I have not had the chance to test it's performance on large tables, as that was not the sort of project I used it on. For searching active record models on a small rails site it could be ideal.</p>
+<p>Pg_search works with postsgresql and builds upon activerecord models. To install simply include "gem 'pg_search'" in your gemfile, and run bundle install. Then include it in the models you would like to search.</p>
 
 <pre class="brush: ruby">
-
+class Post &lt; ActiveRecord::Base
+  include PgSearch
+end
 </pre>
+
+<p>
+From here you can keep it simple and only search across a few columns of a model as follows. 
+</p>  
+
+<pre class="brush: ruby">
+class Post &lt; ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_by_title_and_content, :against => [:title, :content]
+end  
+</pre> 
+
+<p>
+You can then use this created method in your controllers quite simply.
+</p> 
+<pre class="brush: ruby">
+class PostsController &lt; ApplicationController
+  def index
+    @hits = Post.search_by_title_and_content(params[:terms])
+  end
+end  
+</pre> 
+
+<p></p>
 </br>
 </br>
 </div>

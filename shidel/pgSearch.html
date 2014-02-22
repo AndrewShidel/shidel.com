@@ -96,7 +96,19 @@ class PostsController &lt; ApplicationController
 end  
 </pre> 
 
-<p></p>
+<p>pg_search handle searching associated models as well. You need to specify an associated_against property in your model. You then specify the properties of that model you would like to be able to search.</p>
+
+<pre class="brush: ruby">
+class Post &lt; ActiveRecord::Base
+  include PgSearch
+  pg_search_scope  :associated_against => {
+    :author => [:name,:email],
+    :comments => [:title,:content]
+  }
+end  
+</pre> 
+<p>There are many other parts to pg_search worth exploring. The "using" option, which allows you to search with other techniques like Trigram, and double metaphone. A dictionary is also included in order to match with different tenses, and variants. Lastly multi-search seems really powerful and gives you the ability to have a global search across multiple models.</p>
+<p>The best documentation comes from the <a href='https://github.com/Casecommons/pg_search'>github repo</a> have a look for yourself.</p> 
 </br>
 </br>
 </div>

@@ -27,7 +27,11 @@
 	</script>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
+     <script>
+    if (window.self === window.top) {
+        window.location.href = "http://shidel.com/#launcher"
+    }
+    </script>
     <title>Google launcher tutorial</title>
     <style type="text/css">
     body {
@@ -62,23 +66,7 @@
         font-size: 27pt;
         border-bottom: 4px solid;
         width:100%;
-    }
-    .box {
-        width: 50%;
-        background-color: #FFF;
-        overflow-wrap: break-word;
-    }
-    @media screen and (max-width:680px) {
-        .box {
-            width: 85%;
-            margin-left: 7.5%;
-        }
-    }
-    @media screen and (max-width:450px) {
-        .box {
-            width: 95%;
-            margin-left: 2.5%;
-        }
+        margin:0;
     }
     </style>
 

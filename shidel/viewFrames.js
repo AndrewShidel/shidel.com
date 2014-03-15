@@ -1,6 +1,4 @@
-var view;
-(function() {
-    view = {
+   var view = {
 
         create: function(setup) {
             view.setup = setup;
@@ -107,111 +105,8 @@ var view;
 
         sizeFrame: function(elem) {
 
-            var el = document.getElementById(elem);
-            el.height = (getWH(el.contentWindow.document.body,'height',true)) + "px";
+            var elem = document.getElementById(elem);
+            elem.height = elem.contentWindow.document.getElementsByTagName('body')[0].clientHeight+ "px";
             window.scrollTo(0, 0);       
         },
     };
-
-    var defView = document.defaultView;
-
-    var getStyle = defView && defView.getComputedStyle ?
-            function(elem) {
-                return defView.getComputedStyle(elem, null);
-        } :
-            function(elem) {
-                return elem.currentStyle;
-        };
-
-    // hack for WebKit bug, which does not return proper values for percent-margins
-    // Hard work done by Mike Sherov https://github.com/jquery/jquery/pull/616
-
-    var body = document.getElementsByTagName("body")[0],
-        div = document.createElement('div'),
-        fakeBody = body || document.createElement('body');
-
-    div.style.marginTop = '1%';
-    fakeBody.appendChild(div);
-
-    var supportsPercentMargin = getStyle(div).marginTop !== '1%';
-
-    fakeBody.removeChild(div);
-
-    // TODO remove fakebody if it's fake?
-
-    // https://github.com/mikesherov/jquery/blob/191c9c1be/src/css.js
-
-    function hackPercentMargin(elem, computedStyle, marginValue) {
-        if (marginValue.indexOf('%') === -1) {
-            return marginValue;
-        }
-
-        var elemStyle = elem.style,
-            originalWidth = elemStyle.width,
-            ret;
-
-        // get measure by setting it on elem's width
-        elemStyle.width = marginValue;
-        ret = computedStyle.width;
-        elemStyle.width = originalWidth;
-
-        return ret;
-    }
-
-
-    // returns width/height of element, refactored getWH from jQuery
-
-    function getWH(elem, measure, isOuter) {
-        // Start with offset property
-        var isWidth = measure !== 'height',
-            val = isWidth ? elem.offsetWidth : elem.offsetHeight,
-            dirA = isWidth ? 'Left' : 'Top',
-            dirB = isWidth ? 'Right' : 'Bottom',
-            computedStyle = getStyle(elem),
-            paddingA = parseFloat(computedStyle['padding' + dirA]) || 0,
-            paddingB = parseFloat(computedStyle['padding' + dirB]) || 0,
-            borderA = parseFloat(computedStyle['border' + dirA + 'Width']) || 0,
-            borderB = parseFloat(computedStyle['border' + dirB + 'Width']) || 0,
-            computedMarginA = computedStyle['margin' + dirA],
-            computedMarginB = computedStyle['margin' + dirB],
-            marginA, marginB;
-
-        if (!supportsPercentMargin) {
-            computedMarginA = hackPercentMargin(elem, computedStyle, computedMarginA);
-            computedMarginB = hackPercentMargin(elem, computedStyle, computedMarginB);
-        }
-
-        marginA = parseFloat(computedMarginA) || 0;
-        marginB = parseFloat(computedMarginB) || 0;
-
-        if (val > 0) {
-
-            if (isOuter) {
-                // outerWidth, outerHeight, add margin
-                val += marginA + marginB;
-            } else {
-                // like getting width() or height(), no padding or border
-                val -= paddingA + paddingB + borderA + borderB;
-            }
-
-        } else {
-
-            // Fall back to computed then uncomputed css if necessary
-            val = computedStyle[measure];
-            if (val < 0 || val === null) {
-                val = elem.style[measure] || 0;
-            }
-            // Normalize "", auto, and prepare for extra
-            val = parseFloat(val) || 0;
-
-            if (isOuter) {
-                // Add padding, border, margin
-                val += paddingA + paddingB + marginA + marginB + borderA + borderB;
-            }
-        }
-
-        return val;
-    }
-
-
-})()

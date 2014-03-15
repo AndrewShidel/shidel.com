@@ -40,13 +40,14 @@ body {
     padding-right: 2%
 }
 #data {
-    width: 100%
+    width: 100%;
+    overflow-y: hidden;
 }
 #container {
     position: absolute;
     height: 92%;
     top: 58px;
-    width: 100%
+    width: 100%;
 }
 #banner {
     position: absolute;
@@ -176,11 +177,11 @@ body {
         margin-left: 0;
     }
     li>a {
-        line-height: 52px
+        line-height: 52px;
     }
     li {
         width: 100%;
-        border-bottom: 1px solid
+        border-bottom: 1px solid;
     }
 
     #drop{height:158px}

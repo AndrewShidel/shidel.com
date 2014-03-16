@@ -46,6 +46,7 @@
             temp.id = view.setup.view;
 
             temp.frameBorder = "no";
+            temp.scrolling = "no";
 
 
 

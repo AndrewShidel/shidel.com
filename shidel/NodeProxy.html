@@ -126,7 +126,9 @@
         <p>Next, we need to require in express and request, which are the two modules we will be using to make this easier.</p>
 
         <pre class='brush: bash'>
-            cd proxy nm install experess npm install request
+            cd proxy
+            npm install experess
+            npm install request
         </pre>
 
         <p>In the proxy folder we will also create a file called proxy.js, which will house all of the server's logic. This can be done using any text editor, but the one that I will be using is <a href="http://www.sublimetext.com/2">sublime text 2</a>.</p>
@@ -137,21 +139,39 @@
 
                 <p>First, we will require the needed modules:</p>
                 <pre class='brush: js'>
-
-                    var express = require('express'), app = express(), request = require('request'), fs = require('fs'), url = require('url');
+                    var express = require('express'),
+                        app = express(),
+                        request = require('request'),
+                        fs = require('fs'),
+                        url = require('url');
                 </pre>
 
                 <br>
                 <p>Next, we will initialize our server, and have it listen at port 3000. We will also use app.get('*' to have the server take care of any request.</p>
                 <pre class='brush: js'>
-                    app.listen(3000); console.log('Listening on port 3000'); app.get('*', function(req, res) { //A function that takes a url and downloads the source. This will be defined in the next step. getSource(req.params[0].substring(10), res); });
+                    app.listen(3000);
+                    console.log('Listening on port 3000');
+                    app.get('*', function(req, res) {
+                      //A function that takes a url and downloads the source.
+                      //This will be defined in the next step.
+                      getSource(req.params[0].substring(10), res);
+                    });
                 </pre>
                 <p>At this point, if we start he server by calling <b>'node proxy'</b> from the command line, it should print: 'Listening on port 3000'.</p>
 
                 <p>Next, we will define the getSource function. This function will take a url in the form http://example.com/page.html and will use 'req' to send the result back to the user.</p>
 
                 <pre class='brush: js'>
-                    function getSource(uri, res) { //Get the source of the url. request(uri, function(error, response, body) { if (!error && response.statusCode == 200) { res.send(body); }else{ res.send("An error Has occured, the url was most likly incorrect."); } }); }
+                    function getSource(uri, res) {
+                      //Get the source of the url.
+                      request(uri, function(error, response, body) {
+                        if (!error && response.statusCode == 200) {
+                          res.send(body);
+                        }else{
+                          res.send("An error Has occured, the url was most likly incorrect.");
+                        }
+                      });
+                    }
                 </pre>
 
                 <p>And that's all! If you now open the console and type 'node proxy', then open your browser and go to localhost:3000/http://example.com you should get the web page returned to your window.</p>

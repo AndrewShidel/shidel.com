@@ -107,7 +107,7 @@
         sizeFrame: function(elem) {
 
             var elem = document.getElementById(elem);
-            elem.height = elem.contentWindow.document.getElementsByTagName('body')[0].clientHeight+ "px";
-            window.scrollTo(0, 0);       
+            elem.height = elem.contentWindow.document.getElementsByTagName('body')[0].offsetHeight + "px";
+            window.scrollTo(0, 0);
         },
     };
